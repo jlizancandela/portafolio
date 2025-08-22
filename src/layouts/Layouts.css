@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html:hover,
+body:hover,
+*:hover {
+  cursor: none !important;
+}
+
+::selection,
+::backdrop,
+::marker {
+  cursor: none !important;
+}
+
+html:hover,
+body:hover,
+*:hover,
+::selection:hover,
+::backdrop:hover,
+::marker:hover {
+  cursor: none !important;
+}
+
+a:hover {
+  text-shadow: 0 0 10px rgba(186, 12, 229, 0.809);
+  font-weight: bold;
+  transform: scale(1.1);
+}

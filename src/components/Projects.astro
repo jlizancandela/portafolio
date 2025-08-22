@@ -1,0 +1,169 @@
+---
+import projets from "../assets/projects.json";
+import GithubICon from "../assets/GithubICon.astro";
+import LinkIcon from "../assets/LinkIcon.astro";
+---
+
+<section class="proyects" id="proyectos">
+  <h2 class="proyects__title">Proyectos</h2>
+
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="rainbowGradient" gradientUnits="objectBoundingBox">
+        <stop offset="0%" stop-color="purple"></stop>
+        <stop offset="50%" stop-color="blue"></stop>
+        <stop offset="100%" stop-color="purple"></stop>
+        <animateTransform
+          attributeName="gradientTransform"
+          type="rotate"
+          from="0 .5 .5"
+          to="360 .5 .5"
+          dur="4s"
+          repeatCount="indefinite"></animateTransform>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <section class="proyects__list">
+    {
+      projets.projects.map((project) => (
+        <article class="proyect">
+          {/* Borde SVG */}
+          <svg class="proyect__border" aria-hidden="true">
+            <rect
+              x="1.5"
+              y="1.5"
+              width="calc(100% - 3px)"
+              height="calc(100% - 3px)"
+              rx="8"
+              ry="8"
+              fill="none"
+              stroke="url(#rainbowGradient)"
+              stroke-width="5"
+              vector-effect="non-scaling-stroke"
+            />
+          </svg>
+
+          <div
+            class="proyect__image"
+            style={`--bg-image: url(${project.imagen})`}
+          />
+
+          <div class="proyect__info">
+            <h3 class="proyect__title">{project.nombre}</h3>
+            <p class="proyect__description">{project.Descipción}</p>
+
+            <section class="proyect__stack">
+              <span class="proyect__stack-item">Stack: </span>
+              <span class="proyect__stack-item">{project.stack}</span>
+            </section>
+
+            <section class="proyect__links">
+              <a href={project.url} target="_blank" rel="noreferrer">
+                <LinkIcon width="20" height="20" class="proyect__icon" />
+                <span class="proyect__link-text">Live Project</span>
+              </a>
+              <a href={project.github} target="_blank" rel="noreferrer">
+                <GithubICon width="20" height="20" class="proyect__icon" />
+                <span class="proyect__link-text">View code</span>
+              </a>
+            </section>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+</section>
+
+<style>
+  .proyects {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    justify-content: center;
+  }
+
+  .proyects__title {
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .proyect__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .proyect__image {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.5rem 0.5rem 0 0;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .proyects__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .proyect {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    padding: 0;
+    width: 300px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .proyect__border {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: 2;
+  }
+
+  .proyect:hover .proyect__border {
+    opacity: 1;
+  }
+
+  .proyect__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    text-wrap: nowrap;
+  }
+
+  .proyect__links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .proyect__stack {
+    display: flex;
+    flex-direction: row;
+    font-size: small;
+    text-wrap: nowrap;
+    gap: 0.1rem;
+  }
+</style>

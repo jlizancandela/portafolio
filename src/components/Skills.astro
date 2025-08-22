@@ -1,0 +1,57 @@
+---
+import HtmlIcon from "../assets/HtmlIcon.astro";
+import CssIcon from "../assets/CssIcon.astro";
+import JsIcon from "../assets/JsIcon.astro";
+import ReactIcon from "../assets/ReactIcon.astro";
+import TailwindIcon from "../assets/TailwindIcon.astro";
+import PhpIcon from "../assets/PhpIcon.astro";
+import MySqlIcon from "../assets/MySqlIcon.astro";
+import JavaIcon from "../assets/JavaIcon.astro";
+import GithubICon from "../assets/GithubICon.astro";
+import VscodeIcon from "../assets/VscodeIcon.astro";
+import LinuxIcon from "../assets/LinuxIcon.astro";
+import VitestIcon from "../assets/VitestIcon.astro";
+
+const width = "70";
+---
+
+<section class="skills">
+  <h2 class="skills__title">Habilidades</h2>
+  <section class="skills__list">
+    <HtmlIcon aria-label="HTML" width={width} />
+    <CssIcon aria-label="CSS" width={width} />
+    <JsIcon aria-label="JavaScript" width={width} />
+    <ReactIcon aria-label="React" width={width} />
+    <VitestIcon aria-label="Vitest" width={width} />
+    <TailwindIcon aria-label="Tailwind" width={width} />
+    <PhpIcon aria-label="PHP" width={width} />
+    <MySqlIcon aria-label="MySQL" width={width} />
+    <JavaIcon aria-label="Java" width={width} />
+    <GithubICon aria-label="GitHub" width={width} />
+    <VscodeIcon aria-label="VS Code" width={width} />
+    <LinuxIcon aria-label="Linux" width={width} />
+  </section>
+</section>
+
+<style>
+  .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .skills__title {
+    text-align: center;
+    margin: 1rem;
+  }
+
+  .skills__list {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: auto;
+  }
+</style>

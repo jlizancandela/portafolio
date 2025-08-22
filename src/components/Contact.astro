@@ -1,0 +1,86 @@
+---
+const size = "100%";
+---
+
+<section class="contact">
+  <h2 class="contact__title">Contacto</h2>
+  <form
+    class="contac__form"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+  >
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input
+          name="bot-field"
+          type="text"
+        />
+      </label>
+    </p>
+    <imput type="hidden" name="subject" value="contacto de porfolio"></imput>
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name" required />
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required />
+    <label for="message">Mensaje</label>
+    <textarea name="message" id="message" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+<style define:vars={{ size }}>
+  .hidden {
+    display: none;
+  }
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+  }
+
+  input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    width: var(--size);
+    display: absolute;
+  }
+
+  textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    width: var(--size);
+    height: 100px;
+  }
+
+  .contact__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .contac__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  button {
+    width: var(--size);
+    height: 50px;
+    border: 0;
+    text-decoration: none;
+    color: black;
+    border-radius: 2rem;
+  }
+  button:hover {
+    box-shadow: 0 0 10px rgba(186, 12, 229, 0.809);
+  }
+</style>
