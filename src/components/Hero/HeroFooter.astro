@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import down from "../../assets/down.svg";
+import DownIcon from "../../assets/icons/DownIcon.astro";
+---
+
+<div class="hero__footer">
+  <DownIcon width="50" height="50" />
+</div>
+
+<style>
+  .hero__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+    animation: bounce 2s infinite ease-in-out;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+import projects from "../../assets/projects.json";
+import Project from "./Project.astro";
+
+interface Project {
+  nombre: string;
+  imagen: string;
+  Descipción: string;
+  stack: string;
+  url: string;
+  github: string;
+}
+---
+
+<section class="proyects" id="proyectos">
+  <h2 class="proyects__title">Proyectos</h2>
+  <section class="proyects__list">
+    {projects.projects.map((project: Project) => <Project {...project} />)}
+  </section>
+</section>
+
+<style>
+  .proyects {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: var(--background);
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+
+  .proyects__title {
+    margin: 5rem;
+  }
+
+  .proyects__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
+    gap: 2rem;
+    justify-content: center;
+  }
+</style>

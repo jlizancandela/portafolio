@@ -1,0 +1,46 @@
+---
+import HeroContent from "./HeroContent.astro";
+import HeroFooter from "./HeroFooter.astro";
+import Photo from "./Photo.astro";
+---
+
+<section class="hero">
+  <div class="hero__grid">
+    <HeroContent />
+    <Photo />
+  </div>
+
+  <HeroFooter />
+</section>
+
+<style>
+  .hero {
+    background-color: var(--clr-bg);
+    height: 90dvh; /* ocupa exactamente el viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* contenido arriba/centro y flecha abajo */
+    align-items: center;
+    overflow: hidden; /* evita scroll innecesario */
+    padding: 2rem 1rem;
+    color: var(--clr-text);
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    align-items: center;
+    flex: 1; /* ocupa todo el espacio disponible */
+  }
+
+  @media (max-width: 800px) {
+    .hero__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

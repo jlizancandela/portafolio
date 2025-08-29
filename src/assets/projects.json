@@ -3,7 +3,7 @@
         {
             "nombre": "Proyecto 1",
             "Descipción": "Portafolio",
-            "imagen": "https://dummyjson.com/image/300x150",
+            "imagen": "https://ik.imagekit.io/jlc84/portfolio/4Linea.png",
             "stack": "HTML, CSS, JavaScript, React",
             "github": "https://github.com/JorgeAntrax/portafolio",
             "url": "https://github.com/JorgeAntrax/portafolio"
@@ -11,7 +11,7 @@
         {
             "nombre": "Proyecto 2",
             "Descipción": "Portafolio",
-            "imagen": "https://dummyjson.com/image/300x150",
+            "imagen": "https://ik.imagekit.io/jlc84/portfolio/omdb.png",
             "stack": "HTML, CSS, JavaScript, React",
             "github": "https://github.com/JorgeAntrax/portafolio",
             "url": "https://github.com/JorgeAntrax/portafolio"
@@ -19,7 +19,7 @@
         {
             "nombre": "Proyecto 3",
             "Descipción": "Descipción",
-            "imagen": "https://dummyjson.com/image/300x150",
+            "imagen": "https://ik.imagekit.io/jlc84/portfolio/countryQuiz.png",
             "stack": "HTML, CSS, JavaScript, React",
             "github": "https://github.com/JorgeAntrax/proyecto",
             "url": "https://github.com/JorgeAntrax/proyecto"

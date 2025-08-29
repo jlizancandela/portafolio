@@ -1,0 +1,71 @@
+---
+import Sombra from "./Sombra.astro";
+import ProjectLinks from "./ProjectLinks.astro";
+
+const project = Astro.props;
+---
+
+<Sombra>
+  <article class="proyect">
+    <div class="proyect__image" style={`--bg-image: url(${project.imagen})`}>
+    </div>
+
+    <div class="proyect__info">
+      <h3>{project.nombre}</h3>
+      <p class="proyect__description">{project.Descipción}</p>
+
+      <section class="proyect__stack">
+        <span class="proyect__stack-item">Stack: </span>
+        <span class="proyect__stack-item">{project.stack}</span>
+      </section>
+
+      <ProjectLinks project={project} />
+    </div>
+  </article>
+</Sombra>
+
+<style>
+  h3 {
+    text-align: center;
+    color: var(--clr-primary);
+  }
+
+  .proyect__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .proyect__image {
+    background-image: var(--bg-image);
+    background-size: cover;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    aspect-ratio: 4/3;
+  }
+  .proyect {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 0.5rem; /* bordes redondeados */
+    box-shadow: 0 0 15px var(--clr-primary);
+    align-items: center;
+    width: 300px;
+    padding: 0px;
+    border: 1px solid transparent;
+    background: var(--clr-surface);
+    z-index: 1;
+    position: relative;
+    color: var(--clr-text);
+  }
+
+  .proyect__stack {
+    display: flex;
+    flex-direction: row;
+    font-size: small;
+    text-wrap: nowrap;
+    gap: 0.1rem;
+  }
+</style>

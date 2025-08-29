@@ -1,0 +1,35 @@
+---
+import LinkIcon from "../../assets/icons/LinkIcon.astro";
+import GithubICon from "../../assets/icons/GithubICon.astro";
+
+const project = Astro.props;
+---
+
+<section class="proyect__links">
+  <a href={project.url} target="_blank" rel="noreferrer">
+    <LinkIcon width="20" height="20" class="proyect__icon" />
+    <span class="proyect__link-text">Live Project</span>
+  </a>
+  <a href={project.github} target="_blank" rel="noreferrer">
+    <GithubICon width="20" height="20" class="proyect__icon" />
+    <span class="proyect__link-text">View code</span>
+  </a>
+</section>
+
+<style>
+  .proyect__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    text-wrap: nowrap;
+    color: var(--clr-primary);
+  }
+
+  .proyect__links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+</style>

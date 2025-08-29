@@ -6,6 +6,42 @@
   font-display: swap;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --clr-primary: #1e3a8a;
+    --clr-secondary: #a855f7;
+    --clr-accent: #10b981;
+    --clr-surface: #f9f9fb;
+    --clr-muted: #666666;
+    --clr-border: #e0e0e0;
+    --clr-text: #1a1a1a;
+    --clr-bg: #ffffff;
+  }
+  .cursor {
+    background-color: var(--clr-secondary);
+    mix-blend-mode: multiply;
+    filter: blur(5px);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-primary: #9abbf0;
+    --clr-secondary: #e1bcfe;
+    --clr-accent: #34d399;
+    --clr-surface: #242222;
+    --clr-muted: #aaaaaa;
+    --clr-border: #333333;
+    --clr-text: #f5f5f5;
+    --clr-bg: #0f0f0f;
+  }
+  .cursor {
+    background-color: var(--clr-secondary);
+    opacity: 0.6;
+    box-shadow: 0 0 50px var(--clr-secondary);
+    filter: blur(5px);
+  }
+}
+
 html,
 body,
 *,
@@ -14,6 +50,14 @@ body,
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: var(--clr-text);
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+}
+
+html,
+body {
+  background-color: var(--clr-bg);
 }
 
 html:hover,
@@ -22,23 +66,44 @@ body:hover,
   cursor: none !important;
 }
 
-::selection,
-::backdrop,
-::marker {
-  cursor: none !important;
-}
-
-html:hover,
-body:hover,
-*:hover,
-::selection:hover,
-::backdrop:hover,
-::marker:hover {
-  cursor: none !important;
-}
-
 a:hover {
-  text-shadow: 0 0 10px rgba(186, 12, 229, 0.809);
+  text-shadow: 0 0 10px var(--clr-secondary);
   font-weight: bold;
   transform: scale(1.1);
+  cursor: none !important;
+  color: var(--clr-accent) !important;
+}
+
+a {
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--clr-primary);
+}
+
+button {
+  background: linear-gradient(
+    to right,
+    var(--clr-primary),
+    var(--clr-secondary)
+  );
+  color: var(--clr-bg) !important;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  & svg {
+    fill: var(--clr-bg);
+  }
+}
+
+button:hover {
+  background: var(--clr-accent);
+  color: var(--clr-primary);
+
+  & svg:hover {
+    fill: var(--clr-accent);
+  }
 }

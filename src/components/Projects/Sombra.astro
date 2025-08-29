@@ -1,0 +1,59 @@
+---
+
+---
+
+<div class="proyect-wrap">
+  <slot />
+</div>
+
+<style>
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes spin-border {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  .proyect-wrap {
+    position: relative;
+    border-radius: 0.5rem; /* mismo radio que la card */
+    /* opcional: asegura que el blur no recorte raro en esquinas */
+    overflow: visible;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Glow con gradiente + blur (por fuera de la card) */
+  .proyect-wrap::after {
+    content: "";
+    position: absolute;
+    inset: -10px; /* expande hacia fuera */
+    right: 10px;
+    bottom: -10px;
+    top: -10px;
+    left: -10px;
+    border-radius: inherit; /* coincide con el radio */
+    background: conic-gradient(
+      from var(--angle),
+      #1a0639,
+      #3c0a6b,
+      #6a139e,
+      #a11acf,
+      #e324ff
+    );
+    z-index: 0; /* detrás de la card */
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .proyect-wrap:hover::after {
+    opacity: 1;
+    animation: spin-border 3s infinite linear;
+    filter: blur(10px);
+  }
+</style>

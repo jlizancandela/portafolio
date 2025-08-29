@@ -1,0 +1,42 @@
+---
+import HeroButtons from "./HeroButtons.astro";
+---
+
+<div class="hero__content">
+  <h1>
+    Hola 👋 Soy <span>Jorge Lizan</span>, desarrollador web Trainee en proceso
+    de aprendizaje.
+  </h1>
+  <HeroButtons />
+</div>
+
+<style>
+  @media (max-width: 800px) {
+    .hero__content {
+      align-items: center;
+      text-align: center;
+    }
+  }
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .hero__content > h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: auto;
+    text-wrap: balance;
+  }
+
+  .hero__content > h1 > span {
+    background: linear-gradient(purple, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+  }
+</style>

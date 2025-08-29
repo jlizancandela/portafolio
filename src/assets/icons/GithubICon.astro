@@ -8,7 +8,7 @@ const { width, height, class: className } = Astro.props;
 ---
 
 <svg viewBox="0 0 128 128" width={width} height={height} class={className}>
-  <g fill="#181616"
+  <g
     ><path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -18,3 +18,13 @@ const { width, height, class: className } = Astro.props;
     ></path></g
   >
 </svg>
+
+<style>
+  svg {
+    fill: var(--clr-primary);
+  }
+
+  svg:hover {
+    fill: var(--clr-accent);
+  }
+</style>
