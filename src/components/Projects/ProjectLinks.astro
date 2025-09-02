@@ -2,15 +2,16 @@
 import LinkIcon from "../../assets/icons/LinkIcon.astro";
 import GithubICon from "../../assets/icons/GithubICon.astro";
 
-const project = Astro.props;
+// Recibe { project } como prop desde Project.astro
+const { project } = Astro.props;
 ---
 
 <section class="proyect__links">
-  <a href={project.url} target="_blank" rel="noreferrer">
+  <a href={project.url} target="_blank" rel="noopener noreferrer">
     <LinkIcon width="20" height="20" class="proyect__icon" />
     <span class="proyect__link-text">Live Project</span>
   </a>
-  <a href={project.github} target="_blank" rel="noreferrer">
+  <a href={project.github} target="_blank" rel="noopener noreferrer">
     <GithubICon width="20" height="20" class="proyect__icon" />
     <span class="proyect__link-text">View code</span>
   </a>

@@ -1,28 +1,28 @@
 {
     "projects": [
         {
-            "nombre": "Proyecto 1",
-            "Descipción": "Portafolio",
+            "nombre": "4linea",
+            "Descipción": "Juego de Conecta 4 con Ia implementada",
             "imagen": "https://ik.imagekit.io/jlc84/portfolio/4Linea.png",
             "stack": "HTML, CSS, JavaScript, React",
-            "github": "https://github.com/JorgeAntrax/portafolio",
-            "url": "https://github.com/JorgeAntrax/portafolio"
+            "github": "https://github.com/jlizancandela/4linea",
+            "url": "https://4linea.jorgelizancandela.com/"
         },
         {
-            "nombre": "Proyecto 2",
-            "Descipción": "Portafolio",
+            "nombre": "Omdb",
+            "Descipción": "Buscador de peliculas en OMDB",
             "imagen": "https://ik.imagekit.io/jlc84/portfolio/omdb.png",
-            "stack": "HTML, CSS, JavaScript, React",
-            "github": "https://github.com/JorgeAntrax/portafolio",
-            "url": "https://github.com/JorgeAntrax/portafolio"
+            "stack": "HTML, CSS, React, TypeScript",
+            "github": "https://github.com/jlizancandela/omdb",
+            "url": "https://omdb.jorgelizancandela.com/"
         },
         {
-            "nombre": "Proyecto 3",
-            "Descipción": "Descipción",
+            "nombre": "CountryQuiz",
+            "Descipción": "Juego de preguntas sobre países",
             "imagen": "https://ik.imagekit.io/jlc84/portfolio/countryQuiz.png",
             "stack": "HTML, CSS, JavaScript, React",
-            "github": "https://github.com/JorgeAntrax/proyecto",
-            "url": "https://github.com/JorgeAntrax/proyecto"
+            "github": "https://github.com/jlizancandela/countryquiz",
+            "url": "https://countryquiz.jorgelizancandela.com/"
         }
     ]
 }
