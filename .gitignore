@@ -24,7 +24,7 @@ pnpm-debug.log*
 .idea/
 
 # pdf
-*.pdf
+./*.pdf
 
 # warp md
 WARP.md
