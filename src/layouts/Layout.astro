@@ -38,7 +38,7 @@ import Footer from "../components/Footer.astro";
   </head>
   <body>
     <Navbar />
-    <main>
+    <main id="main">
       <slot />
       <Mouse client:load />
     </main>
@@ -54,6 +54,7 @@ import Footer from "../components/Footer.astro";
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
   }
 
   main {
