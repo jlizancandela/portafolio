@@ -9,6 +9,7 @@ const size = "100%";
     method="POST"
     data-netlify="true"
     netlify-honeypot="bot-field"
+    name="contact"
   >
     <p class="hidden">
       <label>
@@ -18,7 +19,8 @@ const size = "100%";
         />
       </label>
     </p>
-    <imput type="hidden" name="subject" value="contacto de porfolio"></imput>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="subject" value="contacto de porfolio" />
     <label for="name">Nombre</label>
     <input type="text" name="name" id="name" required />
     <label for="email">Email</label>
@@ -49,7 +51,7 @@ const size = "100%";
     font-size: 1rem;
     width: var(--size);
     display: absolute;
-    color: var(--clr-bg);
+    color: #000;
   }
 
   textarea {
