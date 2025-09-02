@@ -26,9 +26,11 @@ import HeroButtons from "./HeroButtons.astro";
   }
 
   .hero__content > h1 {
-    font-size: 2.5rem;
+    /* Tipografía fluida para evitar cortes en pantallas pequeñas */
+    font-size: clamp(1.5rem, 5.5vw, 2.5rem);
+    line-height: 1.2;
     font-weight: bold;
-    margin: auto;
+    margin: 0;
     text-wrap: balance;
   }
 
@@ -37,6 +39,7 @@ import HeroButtons from "./HeroButtons.astro";
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 2.5rem;
+    /* Mantener el mismo tamaño que el h1 para no desbordar */
+    font-size: inherit;
   }
 </style>

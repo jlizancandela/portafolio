@@ -16,12 +16,15 @@ import Photo from "./Photo.astro";
 <style>
   .hero {
     background-color: var(--clr-bg);
-    height: 90dvh; /* ocupa exactamente el viewport */
+    /* Evita cortes en móviles permitiendo que crezca si hace falta */
+    min-height: 100dvh;
+    height: auto; /* no forzar altura fija */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* contenido arriba/centro y flecha abajo */
     align-items: center;
-    overflow: hidden; /* evita scroll innecesario */
+    /* Permitir que el contenido salga si es más alto que el viewport */
+    overflow: visible;
     padding: 2rem 1rem;
     color: var(--clr-text);
   }

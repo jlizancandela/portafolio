@@ -28,8 +28,11 @@ import { Image } from "astro:assets";
   }
 
   .hero__image img {
-    width: 300px;
-    height: 300px;
+    /* Tamaño fluido: nunca supera 300px ni baja de ~180px */
+    width: clamp(180px, 55vw, 300px);
+    aspect-ratio: 1 / 1; /* asegura forma cuadrada para el círculo */
+    height: auto;
+    max-width: 100%;
     border-radius: 50%;
     border: 8px solid transparent;
     background:
