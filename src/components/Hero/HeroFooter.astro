@@ -17,6 +17,14 @@ import DownIcon from "../../assets/icons/DownIcon.astro";
     animation: bounce 2s infinite ease-in-out;
   }
 
+  /* Tamaño fluido y centrado del icono en móvil */
+  .hero__footer svg {
+    width: clamp(28px, 8vw, 50px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
   @keyframes bounce {
     0%,
     100% {
