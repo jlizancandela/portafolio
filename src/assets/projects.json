@@ -9,12 +9,12 @@
             "url": "https://4linea.jorgelizancandela.com/"
         },
         {
-            "nombre": "Omdb",
-            "Descipción": "Buscador de peliculas en OMDB",
-            "imagen": "https://ik.imagekit.io/jlc84/portfolio/omdb.png",
-            "stack": "HTML, CSS, React, TypeScript",
-            "github": "https://github.com/jlizancandela/omdb",
-            "url": "https://omdb.jorgelizancandela.com/"
+            "nombre": "Reservas Peluquería",
+            "Descipción": "App de gestión de reservas para una peluquería",
+            "imagen": "https://ik.imagekit.io/jlc84/portfolio/peluqueria.png?updatedAt=1771883009857",
+            "stack": "PHP, JS Preact",
+            "github": "https://github.com/jlizancandela/proyecto",
+            "url": "https://reservas.jorgelizancandela.com/"
         },
         {
             "nombre": "CountryQuiz",
