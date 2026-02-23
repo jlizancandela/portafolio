@@ -3,7 +3,7 @@
         {
             "nombre": "4linea",
             "Descipción": "Juego de Conecta 4 con Ia implementada",
-            "imagen": "https://ik.imagekit.io/jlc84/portfolio/4Linea.png",
+            "imagen": "https://ik.imagekit.io/jlc84/portfolio/4Linea.png?updatedAt=1740348000000",
             "stack": "HTML, CSS, JavaScript, React",
             "github": "https://github.com/jlizancandela/4linea",
             "url": "https://4linea.jorgelizancandela.com/"
@@ -19,7 +19,7 @@
         {
             "nombre": "CountryQuiz",
             "Descipción": "Juego de preguntas sobre países",
-            "imagen": "https://ik.imagekit.io/jlc84/portfolio/countryQuiz.png",
+            "imagen": "https://ik.imagekit.io/jlc84/portfolio/countryQuiz.png?updatedAt=1740348000000",
             "stack": "HTML, CSS, JavaScript, React",
             "github": "https://github.com/jlizancandela/countryquiz",
             "url": "https://countryquiz.jorgelizancandela.com/"
