@@ -1,0 +1,114 @@
+---
+---
+
+<section class="sobre-mi" id="sobre-mi">
+  <div class="sobre-mi__inner">
+    <div class="sobre-mi__index" aria-hidden="true">01</div>
+
+    <div class="sobre-mi__body">
+      <h2 class="sobre-mi__title section-title">Sobre mí</h2>
+
+      <p class="sobre-mi__lead">
+        Soy desarrollador web con formación en desarrollo full stack.
+      </p>
+
+      <p class="sobre-mi__text">
+        Durante años gestioné un negocio propio, y hace un tiempo decidí enfocarme en lo que siempre me ha gustado: programar.
+      </p>
+
+      <p class="sobre-mi__text">
+        He trabajado en proyectos propios con HTML, CSS, JavaScript, React, PHP y SQL. Estoy en proceso de formación y busco una oportunidad para seguir aprendiendo en un entorno real.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sobre-mi {
+    padding: 6rem 2rem;
+    position: relative;
+  }
+
+  .sobre-mi__inner {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .sobre-mi__index {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 0.9;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--clr-secondary);
+    user-select: none;
+    letter-spacing: -0.05em;
+    animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .sobre-mi__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+    animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .sobre-mi__lead {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    color: var(--clr-text);
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  .sobre-mi__text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    font-weight: 400;
+    color: var(--clr-muted);
+    line-height: 1.85;
+    max-width: 58ch;
+  }
+
+  @media (max-width: 640px) {
+    .sobre-mi {
+      padding: 4rem 1.5rem;
+    }
+    .sobre-mi__inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .sobre-mi__index {
+      font-size: 5rem;
+    }
+  }
+</style>

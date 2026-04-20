@@ -1,5 +1,4 @@
 ---
-
 ---
 
 <div class="proyect-wrap">
@@ -21,39 +20,33 @@
 
   .proyect-wrap {
     position: relative;
-    border-radius: 0.5rem; /* mismo radio que la card */
-    /* opcional: asegura que el blur no recorte raro en esquinas */
+    border-radius: 0.75rem;
     overflow: visible;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease;
   }
 
-  /* Glow con gradiente + blur (por fuera de la card) */
   .proyect-wrap::after {
     content: "";
     position: absolute;
-    inset: -10px; /* expande hacia fuera */
-    right: 10px;
-    bottom: -10px;
-    top: -10px;
-    left: -10px;
-    border-radius: inherit; /* coincide con el radio */
+    inset: -12px;
+    border-radius: inherit;
     background: conic-gradient(
       from var(--angle),
-      #1a0639,
-      #3c0a6b,
-      #6a139e,
-      #a11acf,
-      #e324ff
+      var(--clr-primary),
+      var(--clr-secondary),
+      var(--clr-accent),
+      var(--clr-secondary),
+      var(--clr-primary)
     );
-    z-index: 0; /* detrás de la card */
+    z-index: 0;
     pointer-events: none;
     opacity: 0;
-    transition: all 0.3s ease-in-out;
+    filter: blur(12px);
+    transition: opacity 0.4s ease;
+    animation: spin-border 4s infinite linear;
   }
 
   .proyect-wrap:hover::after {
-    opacity: 1;
-    animation: spin-border 3s infinite linear;
-    filter: blur(10px);
+    opacity: 0.7;
   }
 </style>
