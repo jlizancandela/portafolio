@@ -19,7 +19,7 @@ const delay = 0.15 + index * 0.1;
 <Sombra>
   <article class="proyect" style={`animation-delay: ${delay}s`}>
     <div class="proyect__image-wrap">
-      <div class="proyect__image" style={`--bg-image: url(${imagen})`}></div>
+      <img class="proyect__image" src={imagen} alt={nombre} loading="lazy" />
       <div class="proyect__image-overlay"></div>
     </div>
 
@@ -48,6 +48,7 @@ const delay = 0.15 + index * 0.1;
     border-radius: 0.75rem;
     align-items: stretch;
     width: 300px;
+    min-height: 480px;
     background: var(--clr-surface);
     overflow: hidden;
     z-index: 1;
@@ -72,11 +73,10 @@ const delay = 0.15 + index * 0.1;
   }
 
   .proyect__image {
-    background-image: var(--bg-image);
-    background-size: cover;
-    background-position: center;
     width: 100%;
     aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
     transition: transform 0.4s ease;
   }
 
@@ -96,6 +96,7 @@ const delay = 0.15 + index * 0.1;
     flex-direction: column;
     gap: 0.75rem;
     padding: 1.25rem;
+    flex: 1;
   }
 
   .proyect__name {

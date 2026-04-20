@@ -15,7 +15,7 @@ interface Project {
 <section class="proyects" id="proyectos">
   <div class="proyects__header">
     <span class="proyects__index" aria-hidden="true">02</span>
-    <h2 class="proyects__title">Proyectos</h2>
+    <h2 class="proyects__title section-title">Proyectos</h2>
   </div>
   <section class="proyects__list">
     {projects.projects.map((project: Project, i: number) => <Project {...project} index={i} />)}
@@ -52,17 +52,6 @@ interface Project {
     animation: fadeIn 0.6s ease both;
   }
 
-  .proyects__title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: var(--clr-primary);
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin: 0;
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-  }
-
   .proyects__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
@@ -73,11 +62,6 @@ interface Project {
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 0.5; }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   @media (max-width: 640px) {

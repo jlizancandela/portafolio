@@ -7,6 +7,7 @@ import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
   <nav class="navbar__inner">
     <ul class="navbar__menu">
       <li><a href="#main" class="navbar__link">Inicio</a></li>
+      <li><a href="#sobre-mi" class="navbar__link">Sobre mí</a></li>
       <li><a href="#proyectos" class="navbar__link">Proyectos</a></li>
       <li><a href="#contact" class="navbar__link">Contacto</a></li>
     </ul>
@@ -49,15 +50,18 @@ import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 1rem;
   }
 
   .navbar__menu {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1.25rem;
     list-style: none;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
   }
 
   .navbar__link {

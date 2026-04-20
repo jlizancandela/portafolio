@@ -3,18 +3,16 @@ import ClipboardIcon from "../../assets/icons/ClipboardIcon.astro";
 ---
 
 <div class="hero__buttons">
-  <button class="hero__button curriculum">Currículum</button>
-  <div class="hero__mail">
-    <button class="hero__button mail">jlizancandela@gmail.com</button>
-    <button class="hero__button clipboard">
-      <ClipboardIcon width="20" height="20" />
-    </button>
-  </div>
+  <button class="hero__button btn">Currículum</button>
+  <button class="hero__button btn">jlizancandela@gmail.com</button>
+  <button class="hero__button clipboard">
+    <ClipboardIcon width="20" height="20" />
+  </button>
 </div>
 
 <script>
-  const mailButton = document.querySelector(".mail");
-  const proyectosButton = document.querySelector(".curriculum");
+  const proyectosButton = document.querySelector(".hero__button.btn:first-child");
+  const mailButton = document.querySelector(".hero__button.btn:nth-child(2)");
   const clipboardButton = document.querySelector(".clipboard");
 
   const proyectos = () => window.open("/Curriculum.pdf", "_blank");
@@ -39,33 +37,26 @@ import ClipboardIcon from "../../assets/icons/ClipboardIcon.astro";
   .hero__button {
     width: 50%;
     height: 50px;
-    border: 0;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.8rem;
-    font-family: "Roboto";
   }
 
-  .hero__mail {
-    display: flex;
-    align-items: center;
-    gap: 0.1rem;
-    width: 50%;
-  }
-
-  .mail {
-    flex: 1;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding-inline: 1rem;
-  }
-
-  .clipboard {
-    flex: 0;
+  .hero__button.clipboard {
+    width: auto;
     background: transparent;
+    border: none;
+    padding: 0;
   }
 
-  /* En móviles: botones más pequeños y centrados en columna */
+  .hero__button.clipboard :global(svg) {
+    fill: none !important;
+    stroke: var(--clr-text) !important;
+    transition: stroke 0.3s ease, transform 0.3s ease;
+  }
+
+  .hero__button.clipboard:hover :global(svg) {
+    stroke: var(--clr-accent) !important;
+    transform: scale(1.15);
+  }
+
   @media (max-width: 800px) {
     .hero__buttons {
       flex-direction: column;
@@ -76,18 +67,11 @@ import ClipboardIcon from "../../assets/icons/ClipboardIcon.astro";
     .hero__button {
       width: min(420px, 90vw);
       height: clamp(40px, 9.5vw, 48px);
-      font-size: 0.85rem;
     }
 
-    .hero__mail {
-      width: min(420px, 90vw);
-    }
-
-    .clipboard {
-      height: clamp(40px, 9.5vw, 48px);
+    .hero__button.clipboard {
       width: clamp(40px, 9.5vw, 48px);
-      display: grid;
-      place-items: center;
+      height: clamp(40px, 9.5vw, 48px);
     }
   }
 </style>

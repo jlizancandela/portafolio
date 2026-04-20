@@ -1,12 +1,12 @@
 ---
 ---
 
-<section class="sobre-mi">
+<section class="sobre-mi" id="sobre-mi">
   <div class="sobre-mi__inner">
     <div class="sobre-mi__index" aria-hidden="true">01</div>
 
     <div class="sobre-mi__body">
-      <h2 class="sobre-mi__title">Sobre mí</h2>
+      <h2 class="sobre-mi__title section-title">Sobre mí</h2>
 
       <p class="sobre-mi__lead">
         Soy desarrollador web con formación en desarrollo full stack.
@@ -79,32 +79,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  .sobre-mi__title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4.5vw, 3.2rem);
-    font-weight: 700;
-    color: var(--clr-primary);
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s ease;
-  }
-
-  .sobre-mi__title::after {
-    content: '';
-    display: block;
-    width: 3rem;
-    height: 2px;
-    background: linear-gradient(to right, var(--clr-secondary), var(--clr-accent));
-    margin-top: 0.5rem;
-    border-radius: 2px;
-  }
-
-  .sobre-mi__title:hover {
-    color: var(--clr-secondary);
   }
 
   .sobre-mi__lead {

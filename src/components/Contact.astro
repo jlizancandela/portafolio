@@ -1,10 +1,11 @@
 ---
+
 ---
 
 <section class="contact" id="contact">
   <div class="contact__header">
     <span class="contact__index" aria-hidden="true">04</span>
-    <h2 class="contact__title">Contacto</h2>
+    <h2 class="contact__title section-title">Contacto</h2>
   </div>
 
   <form
@@ -51,15 +52,21 @@
           name="message"
           id="message"
           placeholder="¿En qué puedo ayudarte?"
-          required
-        ></textarea>
+          required></textarea>
       </div>
     </div>
 
-    <button type="submit" class="contact__submit">
-      <span>Enviar mensaje</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+    <button type="submit" class="contact__submit btn">
+      Enviar mensaje
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"></path>
       </svg>
     </button>
   </form>
@@ -83,7 +90,7 @@
   }
 
   .contact__index {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     font-style: italic;
@@ -92,17 +99,6 @@
     opacity: 0.5;
     line-height: 1;
     animation: fadeIn 0.6s ease both;
-  }
-
-  .contact__title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: var(--clr-primary);
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin: 0;
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
   .contact__form {
@@ -141,10 +137,12 @@
     border: 1px solid var(--clr-border);
     border-radius: 8px;
     font-size: 0.95rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     background: var(--clr-surface);
     color: var(--clr-text);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
     width: 100%;
   }
 
@@ -161,27 +159,7 @@
   }
 
   .contact__submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    padding: 0.9rem 2rem;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
-    color: white;
-    font-size: 0.95rem;
-    font-weight: 600;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
     align-self: flex-start;
-  }
-
-  .contact__submit:hover {
-    opacity: 0.88;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
   }
 
   .contact__submit svg {
@@ -197,13 +175,23 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 0.5; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.5;
+    }
   }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 560px) {

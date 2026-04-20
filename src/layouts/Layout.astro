@@ -40,7 +40,7 @@ import Footer from "../components/Footer.astro";
     <Navbar />
     <main id="main">
       <slot />
-      <Mouse client:load />
+      <Mouse client:only="preact" />
     </main>
     <Footer />
   </body>
