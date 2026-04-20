@@ -1,5 +1,5 @@
 <footer class="footer">
-  <p>© 2026 Jorge Lizán</p>
+  <p class="footer__text">© 2026 Jorge Lizán — Desarrollador Web</p>
 </footer>
 
 <style>
@@ -7,9 +7,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-    background-color: var(--background);
-    border-radius: 0.5rem;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--clr-border);
+    background: var(--clr-bg);
+  }
+
+  .footer__text {
+    font-size: 0.8rem;
     color: var(--clr-muted);
+    margin: 0;
+    letter-spacing: 0.03em;
   }
 </style>

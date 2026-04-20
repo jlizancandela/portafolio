@@ -13,44 +13,129 @@ import LinuxIcon from "../assets/icons/LinuxIcon.astro";
 import VitestIcon from "../assets/icons/VitestIcon.astro";
 
 const width = "70";
+const skills = [
+  { Icon: HtmlIcon, label: "HTML" },
+  { Icon: CssIcon, label: "CSS" },
+  { Icon: JsIcon, label: "JavaScript" },
+  { Icon: ReactIcon, label: "React" },
+  { Icon: VitestIcon, label: "Vitest" },
+  { Icon: TailwindIcon, label: "Tailwind" },
+  { Icon: PhpIcon, label: "PHP" },
+  { Icon: MySqlIcon, label: "MySQL" },
+  { Icon: JavaIcon, label: "Java" },
+  { Icon: GithubICon, label: "GitHub" },
+  { Icon: VscodeIcon, label: "VS Code" },
+  { Icon: LinuxIcon, label: "Linux" },
+];
 ---
 
 <section class="skills">
-  <h2 class="skills__title">Habilidades</h2>
-  <section class="skills__list">
-    <HtmlIcon aria-label="HTML" width={width} />
-    <CssIcon aria-label="CSS" width={width} />
-    <JsIcon aria-label="JavaScript" width={width} />
-    <ReactIcon aria-label="React" width={width} />
-    <VitestIcon aria-label="Vitest" width={width} />
-    <TailwindIcon aria-label="Tailwind" width={width} />
-    <PhpIcon aria-label="PHP" width={width} />
-    <MySqlIcon aria-label="MySQL" width={width} />
-    <JavaIcon aria-label="Java" width={width} />
-    <GithubICon aria-label="GitHub" width={width} />
-    <VscodeIcon aria-label="VS Code" width={width} />
-    <LinuxIcon aria-label="Linux" width={width} />
-  </section>
+  <div class="skills__header">
+    <span class="skills__index" aria-hidden="true">03</span>
+    <h2 class="skills__title">Habilidades</h2>
+  </div>
+
+  <div class="skills__grid">
+    {skills.map(({ Icon, label }, i) => (
+      <div class="skills__item" style={`animation-delay: ${0.1 + i * 0.05}s`} title={label}>
+        <Icon aria-label={label} width={width} />
+      </div>
+    ))}
+  </div>
 </section>
 
 <style>
   .skills {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    gap: 2.5rem;
+    padding: 4rem 2rem;
+  }
+
+  .skills__header {
+    max-width: 1100px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+
+  .skills__index {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--clr-secondary);
+    opacity: 0.5;
+    line-height: 1;
+    animation: fadeIn 0.6s ease both;
   }
 
   .skills__title {
-    text-align: center;
-    margin: 5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--clr-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
-  .skills__list {
+  .skills__grid {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
-    width: 70%;
+    max-width: 850px;
     margin: auto;
+    width: 100%;
+  }
+
+  .skills__item {
+    display: grid;
+    place-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    flex-shrink: 0;
+  }
+
+  .skills__item:hover {
+    transform: translateY(-6px) scale(1.08);
+    border-color: var(--clr-secondary);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.2);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.5; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    .skills {
+      padding: 3rem 1.5rem;
+    }
+    .skills__header {
+      gap: 1rem;
+    }
+    .skills__grid {
+      gap: 1rem;
+    }
+    .skills__item {
+      width: 68px;
+      height: 68px;
+    }
   }
 </style>

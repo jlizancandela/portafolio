@@ -3,62 +3,129 @@ import GithubICon from "../assets/icons/GithubICon.astro";
 import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
 ---
 
-<header>
-  <nav class="navbar">
+<header class="navbar">
+  <nav class="navbar__inner">
     <ul class="navbar__menu">
-      <li class="navbar__item">
-        <a href="#main" class="navbar__link">Inicio</a>
-      </li>
-      <li class="navbar__item">
-        <a href="#proyectos" class="navbar__link">Proyectos</a>
-      </li>
-      <li class="navbar__item">
-        <a href="#contact" class="navbar__link">Contacto</a>
-      </li>
-      <li class="navbar__item">
-        <a
-          href="https://github.com/jlizancandela"
-          class="navbar__link"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <GithubICon width="20" height="20" />
-        </a>
-      </li>
-      <li class="navbar__item">
-        <a
-          href="https://www.linkedin.com/in/jlizancandela/"
-          class="navbar__link"
-        >
-          <LinkedInIcon aria-label="LinkedIn" width="20" height="20" />
-        </a>
-      </li>
+      <li><a href="#main" class="navbar__link">Inicio</a></li>
+      <li><a href="#proyectos" class="navbar__link">Proyectos</a></li>
+      <li><a href="#contact" class="navbar__link">Contacto</a></li>
     </ul>
+
+    <div class="navbar__social">
+      <a
+        href="https://github.com/jlizancandela"
+        class="navbar__social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <GithubICon width="18" height="18" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/jlizancandela/"
+        class="navbar__social-link"
+        aria-label="LinkedIn"
+      >
+        <LinkedInIcon width="18" height="18" />
+      </a>
+    </div>
   </nav>
 </header>
 
 <style>
   .navbar {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
     padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--clr-bg);
+    border-bottom: 1px solid var(--clr-border);
+    backdrop-filter: blur(8px);
+  }
+
+  .navbar__inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .navbar__menu {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
+    gap: 2rem;
     list-style: none;
-    a {
-      text-decoration: none;
-      color: var(--clr-primary);
-      display: flex;
-      align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar__link {
+    text-decoration: none;
+    color: var(--clr-text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .navbar__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--clr-secondary);
+    transition: width 0.3s ease;
+  }
+
+  .navbar__link:hover {
+    color: var(--clr-secondary);
+    text-shadow: none;
+    transform: none;
+  }
+
+  .navbar__link:hover::after {
+    width: 100%;
+  }
+
+  .navbar__social {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .navbar__social-link {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--clr-border);
+    background: var(--clr-surface);
+    color: var(--clr-text);
+    transition: all 0.25s ease;
+  }
+
+  .navbar__social-link:hover {
+    border-color: var(--clr-secondary);
+    color: var(--clr-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+    text-shadow: none;
+  }
+
+  @media (max-width: 640px) {
+    .navbar {
+      padding: 0.75rem 1.5rem;
+    }
+    .navbar__menu {
+      gap: 1.25rem;
+    }
+    .navbar__link {
+      font-size: 0.8rem;
     }
   }
 </style>

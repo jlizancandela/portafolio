@@ -13,9 +13,12 @@ interface Project {
 ---
 
 <section class="proyects" id="proyectos">
-  <h2 class="proyects__title">Proyectos</h2>
+  <div class="proyects__header">
+    <span class="proyects__index" aria-hidden="true">02</span>
+    <h2 class="proyects__title">Proyectos</h2>
+  </div>
   <section class="proyects__list">
-    {projects.projects.map((project: Project) => <Project {...project} />)}
+    {projects.projects.map((project: Project, i: number) => <Project {...project} index={i} />)}
   </section>
 </section>
 
@@ -23,21 +26,66 @@ interface Project {
   .proyects {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 1rem;
-    background-color: var(--background);
-    border-radius: 0.5rem;
-    text-align: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    position: relative;
+  }
+
+  .proyects__header {
+    max-width: 1100px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+
+  .proyects__index {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 700;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--clr-secondary);
+    opacity: 0.5;
+    line-height: 1;
+    animation: fadeIn 0.6s ease both;
   }
 
   .proyects__title {
-    margin: 5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--clr-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
   .proyects__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
-    gap: 2rem;
+    gap: 2.5rem;
     justify-content: center;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.5; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    .proyects {
+      padding: 3rem 1.5rem;
+    }
+    .proyects__header {
+      gap: 1rem;
+    }
   }
 </style>

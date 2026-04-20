@@ -1,88 +1,220 @@
 ---
-const size = "100%";
 ---
 
 <section class="contact" id="contact">
-  <h2 class="contact__title">Contacto</h2>
+  <div class="contact__header">
+    <span class="contact__index" aria-hidden="true">04</span>
+    <h2 class="contact__title">Contacto</h2>
+  </div>
+
   <form
-    class="contac__form"
+    class="contact__form"
     method="POST"
     data-netlify="true"
     netlify-honeypot="bot-field"
     name="contact"
   >
     <p class="hidden">
-      <label>
-        Don’t fill this out if you’re human: <input
-          name="bot-field"
-          type="text"
-        />
-      </label>
+      <label>Don't fill this out: <input name="bot-field" type="text" /></label>
     </p>
     <input type="hidden" name="form-name" value="contact" />
-    <input type="hidden" name="subject" value="contacto de porfolio" />
-    <label for="name">Nombre</label>
-    <input type="text" name="name" id="name" placeholder="Escribe tu nombre" required />
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" placeholder="Escribe tu email" required />
-    <label for="message">Mensaje</label>
-    <textarea name="message" id="message" placeholder="Escribe tu mensaje" required></textarea>
-    <button type="submit">Enviar</button>
+    <input type="hidden" name="subject" value="contacto de portafolio" />
+
+    <div class="contact__fields">
+      <div class="contact__field">
+        <label for="name" class="contact__label">Nombre</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Tu nombre"
+          required
+          autocomplete="name"
+        />
+      </div>
+
+      <div class="contact__field">
+        <label for="email" class="contact__label">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="tu@email.com"
+          required
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="contact__field contact__field--full">
+        <label for="message" class="contact__label">Mensaje</label>
+        <textarea
+          name="message"
+          id="message"
+          placeholder="¿En qué puedo ayudarte?"
+          required
+        ></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="contact__submit">
+      <span>Enviar mensaje</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+      </svg>
+    </button>
   </form>
 </section>
 
-<style define:vars={{ size }}>
-  .hidden {
-    display: none;
-  }
+<style>
   .contact {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: var(--clr-bg);
-    border-radius: 0.5rem;
+    gap: 3rem;
+    padding: 4rem 2rem 6rem;
+    max-width: 1100px;
+    margin: auto;
+    width: 100%;
   }
 
-  input {
-    padding: 0.5rem;
-    border: 2px solid var(--clr-border);
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    width: var(--size);
-    display: absolute;
-    color: #000;
+  .contact__header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
   }
 
-  textarea {
-    padding: 0.5rem;
-    border: 1px solid var(--clr-border);
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    width: var(--size);
-    height: 100px;
-    color: #000;
+  .contact__index {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--clr-secondary);
+    opacity: 0.5;
+    line-height: 1;
+    animation: fadeIn 0.6s ease both;
   }
 
   .contact__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--clr-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
   }
 
-  .contac__form {
+  .contact__form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
-  button {
-    width: var(--size);
-    height: 50px;
-    border: 0;
-    text-decoration: none;
-    color: var(--clr-bg);
-    font-size: bold;
+  .contact__fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .contact__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .contact__field--full {
+    grid-column: 1 / -1;
+  }
+
+  .contact__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clr-muted);
+  }
+
+  input,
+  textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--clr-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--clr-surface);
+    color: var(--clr-text);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    width: 100%;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--clr-secondary);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .contact__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .contact__submit:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+  }
+
+  .contact__submit svg {
+    transition: transform 0.3s ease;
+  }
+
+  .contact__submit:hover svg {
+    transform: translateX(3px);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.5; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 560px) {
+    .contact {
+      padding: 3rem 1.5rem 5rem;
+    }
+    .contact__fields {
+      grid-template-columns: 1fr;
+    }
+    .contact__header {
+      gap: 1rem;
+    }
   }
 </style>
