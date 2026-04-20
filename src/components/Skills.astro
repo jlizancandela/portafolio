@@ -31,16 +31,22 @@ const skills = [
 
 <section class="skills">
   <div class="skills__header">
-    <span class="skills__index" aria-hidden="true">03</span>
+    <span class="skills__index" aria-hidden="true">02</span>
     <h2 class="skills__title section-title">Habilidades</h2>
   </div>
 
   <div class="skills__grid">
-    {skills.map(({ Icon, label }, i) => (
-      <div class="skills__item" style={`animation-delay: ${0.1 + i * 0.05}s`} title={label}>
-        <Icon aria-label={label} width={width} />
-      </div>
-    ))}
+    {
+      skills.map(({ Icon, label }, i) => (
+        <div
+          class="skills__item"
+          style={`animation-delay: ${0.1 + i * 0.05}s`}
+          title={label}
+        >
+          <Icon aria-label={label} width={width} />
+        </div>
+      ))
+    }
   </div>
 </section>
 
@@ -62,7 +68,7 @@ const skills = [
   }
 
   .skills__index {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: clamp(4rem, 10vw, 8rem);
     font-weight: 700;
     font-style: italic;
@@ -103,13 +109,23 @@ const skills = [
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 0.5; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.5;
+    }
   }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 640px) {
