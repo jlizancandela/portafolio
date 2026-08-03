@@ -5,33 +5,33 @@ import ProjectLinks from "./ProjectLinks.astro";
 interface Props {
   nombre: string;
   imagen: string;
-  Descipción: string;
+  descripcion: string;
   stack: string;
   url: string;
   github: string;
   index?: number;
 }
 
-const { nombre, imagen, Descipción, stack, url, github, index = 0 } = Astro.props;
+const { nombre, imagen, descripcion, stack, url, github, index = 0 } = Astro.props;
 const delay = 0.15 + index * 0.1;
 ---
 
 <Sombra>
-  <article class="proyect" style={`animation-delay: ${delay}s`}>
-    <div class="proyect__image-wrap">
-      <img class="proyect__image" src={imagen} alt={nombre} loading="lazy" />
-      <div class="proyect__image-overlay"></div>
+  <article class="project" style={`animation-delay: ${delay}s`}>
+    <div class="project__image-wrap">
+      <img class="project__image" src={imagen} alt={`Captura de ${nombre}`} loading="lazy" />
+      <div class="project__image-overlay"></div>
     </div>
 
-    <div class="proyect__info">
-      <h3 class="proyect__name">{nombre}</h3>
-      <p class="proyect__description">{Descipción}</p>
+    <div class="project__info">
+      <h3 class="project__name">{nombre}</h3>
+      <p class="project__description">{descripcion}</p>
 
-      <div class="proyect__stack">
-        <span class="proyect__stack-label">Stack</span>
-        <span class="proyect__stack-tags">
+      <div class="project__stack">
+        <span class="project__stack-label">Stack</span>
+        <span class="project__stack-tags">
           {stack.split(',').map((s: string) => (
-            <span class="proyect__tag">{s.trim()}</span>
+            <span class="project__tag">{s.trim()}</span>
           ))}
         </span>
       </div>
@@ -42,7 +42,7 @@ const delay = 0.15 + index * 0.1;
 </Sombra>
 
 <style>
-  .proyect {
+  .project {
     display: flex;
     flex-direction: column;
     border-radius: 0.75rem;
@@ -58,7 +58,7 @@ const delay = 0.15 + index * 0.1;
     transition: transform 0.3s ease;
   }
 
-  .proyect:hover {
+  .project:hover {
     transform: translateY(-4px);
   }
 
@@ -67,12 +67,12 @@ const delay = 0.15 + index * 0.1;
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .proyect__image-wrap {
+  .project__image-wrap {
     position: relative;
     overflow: hidden;
   }
 
-  .proyect__image {
+  .project__image {
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
@@ -80,18 +80,18 @@ const delay = 0.15 + index * 0.1;
     transition: transform 0.4s ease;
   }
 
-  .proyect:hover .proyect__image {
+  .project:hover .project__image {
     transform: scale(1.04);
   }
 
-  .proyect__image-overlay {
+  .project__image-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.15) 100%);
     pointer-events: none;
   }
 
-  .proyect__info {
+  .project__info {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -99,7 +99,7 @@ const delay = 0.15 + index * 0.1;
     flex: 1;
   }
 
-  .proyect__name {
+  .project__name {
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
     font-weight: 700;
@@ -109,20 +109,20 @@ const delay = 0.15 + index * 0.1;
     letter-spacing: -0.01em;
   }
 
-  .proyect__description {
+  .project__description {
     font-size: 0.85rem;
     color: var(--clr-muted);
     line-height: 1.6;
     margin: 0;
   }
 
-  .proyect__stack {
+  .project__stack {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
   }
 
-  .proyect__stack-label {
+  .project__stack-label {
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -130,13 +130,13 @@ const delay = 0.15 + index * 0.1;
     color: var(--clr-secondary);
   }
 
-  .proyect__stack-tags {
+  .project__stack-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.35rem;
   }
 
-  .proyect__tag {
+  .project__tag {
     font-size: 0.7rem;
     padding: 0.2rem 0.5rem;
     border-radius: 3px;
