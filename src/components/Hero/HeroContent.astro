@@ -4,8 +4,11 @@ import HeroButtons from "./HeroButtons.astro";
 
 <div class="hero__content">
   <h1>
-    Hola 👋 Soy <span>Jorge Lizan</span>, desarrollador web Full Stack
+    Hola 👋 Soy <span>Jorge Lizán</span>, desarrollador web junior
   </h1>
+  <p class="hero__subtitle">
+    Construyo aplicaciones web completas con PHP, JavaScript, React y bases de datos SQL.
+  </p>
   <HeroButtons />
 </div>
 
@@ -16,16 +19,16 @@ import HeroButtons from "./HeroButtons.astro";
       text-align: center;
     }
   }
+
   .hero__content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .hero__content > h1 {
-    /* Tipografía fluida para evitar cortes en pantallas pequeñas */
     font-size: clamp(1.5rem, 5.5vw, 2.5rem);
     line-height: 1.2;
     font-weight: bold;
@@ -38,7 +41,15 @@ import HeroButtons from "./HeroButtons.astro";
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* Mantener el mismo tamaño que el h1 para no desbordar */
     font-size: inherit;
+  }
+
+  .hero__subtitle {
+    max-width: 38rem;
+    margin: 0;
+    color: var(--clr-muted);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    text-wrap: balance;
   }
 </style>
