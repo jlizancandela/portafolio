@@ -1,36 +1,36 @@
 {
-    "projects": [
-        {
-            "nombre": "Podólogos Pérez Guerrero",
-            "Descipción": "Sitio web profesional para despacho de podología",
-            "imagen": "https://ik.imagekit.io/jlc84/portfolio/podologos.png",
-            "stack": "JavaScript, PHP, WordPress",
-            "github": "https://github.com/jlizancandela/perez_guerrero",
-            "url": "https://podologosperezguerrero.com/"
-        },
-        {
-            "nombre": "4linea",
-            "Descipción": "Juego de Conecta 4 con Ia implementada",
-            "imagen": "https://ik.imagekit.io/jlc84/portfolio/4Linea.png",
-            "stack": "HTML, CSS, JavaScript, React",
-            "github": "https://github.com/jlizancandela/4linea",
-            "url": "https://4linea.jorgelizancandela.com/"
-        },
-        {
-            "nombre": "Reservas Peluquería",
-            "Descipción": "App de gestión de reservas para una peluquería",
-            "imagen": "https://ik.imagekit.io/jlc84/portfolio/peluqueria.png?updatedAt=1771883009857",
-            "stack": "PHP, JS Preact",
-            "github": "https://github.com/jlizancandela/proyecto",
-            "url": "https://reservas.jorgelizancandela.com/"
-        },
-        {
-            "nombre": "CountryQuiz",
-            "Descipción": "Juego de preguntas sobre países",
-            "imagen": "https://ik.imagekit.io/jlc84/portfolio/countryQuiz.png",
-            "stack": "HTML, CSS, JavaScript, React",
-            "github": "https://github.com/jlizancandela/countryquiz",
-            "url": "https://countryquiz.jorgelizancandela.com/"
-        }
-    ]
+  "projects": [
+    {
+      "nombre": "Reservas Peluquería",
+      "descripcion": "Aplicación full stack para gestionar clientes, servicios y reservas.",
+      "imagen": "https://ik.imagekit.io/jlc84/portfolio/peluqueria.png?updatedAt=1771883009857",
+      "stack": "PHP, Preact, MySQL, Docker",
+      "github": "https://github.com/jlizancandela/proyecto",
+      "url": "https://reservas.jorgelizancandela.com/"
+    },
+    {
+      "nombre": "CountryQuiz",
+      "descripcion": "Juego de preguntas sobre países con estado global y consumo de APIs.",
+      "imagen": "https://ik.imagekit.io/jlc84/portfolio/countryQuiz.png",
+      "stack": "React, TypeScript, Zustand, Vitest",
+      "github": "https://github.com/jlizancandela/countryquiz",
+      "url": "https://countryquiz.jorgelizancandela.com/"
+    },
+    {
+      "nombre": "Podólogos Pérez Guerrero",
+      "descripcion": "Sitio web profesional desarrollado para una clínica de podología.",
+      "imagen": "https://ik.imagekit.io/jlc84/portfolio/podologos.png",
+      "stack": "WordPress, PHP, JavaScript",
+      "github": "https://github.com/jlizancandela/perez_guerrero",
+      "url": "https://podologosperezguerrero.com/"
+    },
+    {
+      "nombre": "4linea",
+      "descripcion": "Juego de Conecta 4 con oponente controlado mediante inteligencia artificial.",
+      "imagen": "https://ik.imagekit.io/jlc84/portfolio/4Linea.png",
+      "stack": "React, JavaScript, HTML, CSS",
+      "github": "https://github.com/jlizancandela/4linea",
+      "url": "https://4linea.jorgelizancandela.com/"
+    }
+  ]
 }
