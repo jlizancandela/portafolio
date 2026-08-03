@@ -5,68 +5,66 @@
 [![Netlify](https://img.shields.io/badge/Netlify-00C7B7?logo=netlify&logoColor=fff)](https://www.netlify.com)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)](LICENSE)
 
-Portfolio personal de **Jorge Lizán** — desarrollador web full stack. Construido con **Astro** y **Preact**, desplegado en Netlify.
+Portfolio personal de **Jorge Lizán**, desarrollador web junior. Presenta una selección de proyectos con enlaces a sus demos y repositorios, donde se encuentra la documentación técnica de cada aplicación.
 
-👉 **[ver sitio](https://jorgelizancandela.com)**
+👉 **[Ver portfolio](https://jorgelizancandela.com)**
 
 ---
 
-## Stack
+## Tecnologías del portfolio
 
 | Frontend | Integraciones | Herramientas |
-|----------|--------------|--------------|
-| Astro 5 | @astrojs/preact | VS Code |
-| Preact 10 | Netlify Forms | GitHub |
-| CSS moderno | — | Linux |
-
-**Habilidades representadas:** HTML, CSS, JavaScript, React, Tailwind, PHP, MySQL, Java, Vitest, Git/GitHub, VS Code, Linux.
+|----------|---------------|--------------|
+| Astro 5 | @astrojs/preact | Git y GitHub |
+| Preact 10 | Netlify Forms | Netlify |
+| CSS moderno | Honeypot antispam | Linux |
 
 ---
 
 ## Secciones
 
-- **Hero** — presentación con foto y enlaces
-- **Sobre mí** — contexto personal y profesional
-- **Habilidades** — grid de tecnologías con iconos
-- **Proyectos** — trabajos destacados con enlaces a demo y código
-- **Contacto** — formulario con Netlify Forms (honeypot anti-spam)
+- **Presentación** — perfil profesional y accesos principales.
+- **Sobre mí** — formación, tecnologías y objetivo profesional.
+- **Habilidades** — herramientas y lenguajes con los que trabajo.
+- **Proyectos** — selección de aplicaciones con demo y repositorio.
+- **Contacto** — formulario mediante Netlify Forms.
 
 ---
 
 ## Proyectos destacados
 
-| Proyecto | Stack | Demo |
-|----------|-------|------|
-| [Podólogos Pérez Guerrero](https://podologosperezguerrero.com/) | JavaScript, PHP, WordPress | [ver](https://podologosperezguerrero.com/) |
-| [4linea](https://4linea.jorgelizancandela.com/) — Conecta 4 con IA | HTML, CSS, JavaScript, React | [ver](https://4linea.jorgelizancandela.com/) |
-| [Reservas Peluquería](https://reservas.jorgelizancandela.com/) | PHP, JS/Preact | [ver](https://reservas.jorgelizancandela.com/) |
-| [CountryQuiz](https://countryquiz.jorgelizancandela.com/) — Juego de preguntas | HTML, CSS, JavaScript, React | [ver](https://countryquiz.jorgelizancandela.com/) |
+| Proyecto | Descripción | Stack principal |
+|----------|-------------|-----------------|
+| [Reservas Peluquería](https://reservas.jorgelizancandela.com/) | Aplicación full stack para gestionar clientes, servicios y reservas. | PHP, Preact, MySQL, Docker |
+| [CountryQuiz](https://countryquiz.jorgelizancandela.com/) | Juego de preguntas sobre países con estado global y consumo de APIs. | React, TypeScript, Zustand, Vitest |
+| [Podólogos Pérez Guerrero](https://podologosperezguerrero.com/) | Sitio web profesional para una clínica de podología. | WordPress, PHP, JavaScript |
+| [4linea](https://4linea.jorgelizancandela.com/) | Juego de Conecta 4 con oponente controlado mediante inteligencia artificial. | React, JavaScript, HTML, CSS |
+
+La documentación detallada, las instrucciones de instalación y las decisiones técnicas se mantienen en el README de cada repositorio.
 
 ---
 
-## Desarrollo
+## Desarrollo local
 
 ```bash
-# Instalar dependencias
 npm install
-
-# Iniciar servidor de desarrollo
 npm run dev
-
-# Build producción
-npm run build
-
-# Vista previa del build
-npm run preview
 ```
 
-El servidor de desarrollo arranca en `http://localhost:4321`.
+El servidor de desarrollo se inicia en `http://localhost:4321`.
+
+### Otros comandos
+
+```bash
+npm run build
+npm run preview
+```
 
 ---
 
 ## Despliegue
 
-El sitio se despliega automáticamente en **Netlify** desde la rama `main` al hacer push.
+El sitio se despliega automáticamente en **Netlify** desde la rama `master`.
 
 ---
 
