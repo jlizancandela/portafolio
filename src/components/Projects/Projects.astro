@@ -2,24 +2,24 @@
 import projects from "../../assets/projects.json";
 import Project from "./Project.astro";
 
-interface Project {
+interface ProjectData {
   nombre: string;
   imagen: string;
-  Descipción: string;
+  descripcion: string;
   stack: string;
   url: string;
   github: string;
 }
 ---
 
-<section class="proyects" id="proyectos">
-  <div class="proyects__header">
-    <span class="proyects__index" aria-hidden="true">03</span>
-    <h2 class="proyects__title section-title">Proyectos</h2>
+<section class="projects" id="proyectos">
+  <div class="projects__header">
+    <span class="projects__index" aria-hidden="true">03</span>
+    <h2 class="projects__title section-title">Proyectos</h2>
   </div>
-  <section class="proyects__list">
+  <section class="projects__list">
     {
-      projects.projects.map((project: Project, i: number) => (
+      projects.projects.map((project: ProjectData, i: number) => (
         <Project {...project} index={i} />
       ))
     }
@@ -27,7 +27,7 @@ interface Project {
 </section>
 
 <style>
-  .proyects {
+  .projects {
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -35,7 +35,7 @@ interface Project {
     position: relative;
   }
 
-  .proyects__header {
+  .projects__header {
     max-width: 1100px;
     margin: auto;
     width: 100%;
@@ -44,7 +44,7 @@ interface Project {
     gap: 1.5rem;
   }
 
-  .proyects__index {
+  .projects__index {
     font-family: "Playfair Display", serif;
     font-size: clamp(4rem, 10vw, 8rem);
     font-weight: 700;
@@ -56,7 +56,7 @@ interface Project {
     animation: fadeIn 0.6s ease both;
   }
 
-  .proyects__list {
+  .projects__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
     gap: 2.5rem;
@@ -73,10 +73,10 @@ interface Project {
   }
 
   @media (max-width: 640px) {
-    .proyects {
+    .projects {
       padding: 3rem 1.5rem;
     }
-    .proyects__header {
+    .projects__header {
       gap: 1rem;
     }
   }
