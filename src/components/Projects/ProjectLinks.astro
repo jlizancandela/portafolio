@@ -8,28 +8,41 @@ interface ProjectProps {
   nombre: string;
 }
 
-const { project } = Astro.props;
+const { project } = Astro.props as { project: ProjectProps };
 ---
 
-<div class="proyect__links">
-  <a href={project.url} target="_blank" rel="noopener noreferrer" class="proyect__link projet__link--primary">
+<div class="project__links">
+  <a
+    href={project.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="project__link project__link--primary"
+    aria-label={`Ver demo de ${project.nombre}`}
+  >
     <LinkIcon width="16" height="16" />
-    <span>Live</span>
+    <span>Demo</span>
   </a>
-  <a href={project.github} target="_blank" rel="noopener noreferrer" class="proyect__link">
+  <a
+    href={project.github}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="project__link"
+    aria-label={`Ver ${project.nombre} en GitHub`}
+  >
     <GithubICon width="16" height="16" />
-    <span>Code</span>
+    <span>GitHub</span>
   </a>
 </div>
 
 <style>
-  .proyect__links {
+  .project__links {
     display: flex;
     gap: 0.75rem;
-    margin-top: 0.25rem;
+    margin-top: auto;
+    padding-top: 0.25rem;
   }
 
-  .proyect__link {
+  .project__link {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -44,20 +57,20 @@ const { project } = Astro.props;
     transition: all 0.25s ease;
   }
 
-  .proyect__link:hover {
+  .project__link:hover {
     border-color: var(--clr-secondary);
     color: var(--clr-secondary);
     transform: translateY(-1px);
     text-shadow: none;
   }
 
-  .proyect__link--primary {
+  .project__link--primary {
     background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
     color: white;
     border-color: transparent;
   }
 
-  .proyect__link--primary:hover {
+  .project__link--primary:hover {
     color: white;
     border-color: transparent;
     opacity: 0.85;
