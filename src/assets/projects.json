@@ -31,6 +31,14 @@
       "stack": "React, JavaScript, HTML, CSS",
       "github": "https://github.com/jlizancandela/4linea",
       "url": "https://4linea.jorgelizancandela.com/"
+    },
+    {
+      "nombre": "Omdb",
+      "descripcion": "Aplicación para buscar películas y series usando la API de OMDB.",
+      "imagen": "https://ik.imagekit.io/jlc84/portfolio/omdb.png",
+      "stack": "React, TypeScript, HTML, CSS",
+      "github": "https://github.com/jlizancandela/omdb",
+      "url": "https://omdb.jorgelizancandela.com/"
     }
   ]
 }
