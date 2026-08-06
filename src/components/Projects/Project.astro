@@ -45,12 +45,11 @@ const delay = 0.15 + index * 0.1;
 
 <style>
   .project {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 180px 1fr;
     border-radius: 0.75rem;
-    align-items: stretch;
     width: 300px;
-    height: 480px;
+    height: 500px;
     background: var(--clr-surface);
     overflow: hidden;
     z-index: 1;
@@ -72,8 +71,7 @@ const delay = 0.15 + index * 0.1;
   .project__image-wrap {
     position: relative;
     overflow: hidden;
-    flex: 0 0 225px;
-    height: 225px;
+    min-height: 0;
   }
 
   .project__image {
@@ -97,10 +95,9 @@ const delay = 0.15 + index * 0.1;
 
   .project__info {
     display: grid;
-    grid-template-rows: 2.9rem 4.1rem 4.25rem 2rem;
+    grid-template-rows: 2.9rem 4.1rem minmax(0, 1fr) 2rem;
     gap: 0.55rem;
     padding: 1rem 1.25rem;
-    flex: 1;
     min-height: 0;
     overflow: hidden;
   }
@@ -166,7 +163,7 @@ const delay = 0.15 + index * 0.1;
   }
 
   .project__actions {
-    height: 2rem;
+    min-height: 0;
     overflow: hidden;
   }
 </style>
