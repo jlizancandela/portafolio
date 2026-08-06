@@ -3,8 +3,8 @@ import LinkIcon from "../../assets/icons/LinkIcon.astro";
 import GithubICon from "../../assets/icons/GithubICon.astro";
 
 interface ProjectProps {
-  url: string;
-  github: string;
+  url?: string;
+  github?: string;
   nombre: string;
 }
 
@@ -12,26 +12,34 @@ const { project } = Astro.props as { project: ProjectProps };
 ---
 
 <div class="project__links">
-  <a
-    href={project.url}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="project__link project__link--primary"
-    aria-label={`Ver demo de ${project.nombre}`}
-  >
-    <LinkIcon width="16" height="16" />
-    <span>Demo</span>
-  </a>
-  <a
-    href={project.github}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="project__link"
-    aria-label={`Ver ${project.nombre} en GitHub`}
-  >
-    <GithubICon width="16" height="16" />
-    <span>GitHub</span>
-  </a>
+  {
+    project.url && (
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project__link project__link--primary"
+        aria-label={`Ver demo de ${project.nombre}`}
+      >
+        <LinkIcon width="16" height="16" />
+        <span>Demo</span>
+      </a>
+    )
+  }
+  {
+    project.github && (
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project__link"
+        aria-label={`Ver ${project.nombre} en GitHub`}
+      >
+        <GithubICon width="16" height="16" />
+        <span>GitHub</span>
+      </a>
+    )
+  }
 </div>
 
 <style>
