@@ -7,8 +7,8 @@ interface Props {
   imagen: string;
   descripcion: string;
   stack: string;
-  url: string;
-  github: string;
+  url?: string;
+  github?: string;
   index?: number;
 }
 
@@ -48,7 +48,7 @@ const delay = 0.15 + index * 0.1;
     border-radius: 0.75rem;
     align-items: stretch;
     width: 300px;
-    min-height: 480px;
+    height: 480px;
     background: var(--clr-surface);
     overflow: hidden;
     z-index: 1;
@@ -70,6 +70,7 @@ const delay = 0.15 + index * 0.1;
   .project__image-wrap {
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
   }
 
   .project__image {
@@ -97,6 +98,7 @@ const delay = 0.15 + index * 0.1;
     gap: 0.75rem;
     padding: 1.25rem;
     flex: 1;
+    min-height: 0;
   }
 
   .project__name {
