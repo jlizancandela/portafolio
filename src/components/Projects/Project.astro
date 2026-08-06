@@ -36,7 +36,9 @@ const delay = 0.15 + index * 0.1;
         </span>
       </div>
 
-      <ProjectLinks project={{ url, github, nombre }} />
+      <div class="project__actions">
+        <ProjectLinks project={{ url, github, nombre }} />
+      </div>
     </div>
   </article>
 </Sombra>
@@ -70,12 +72,13 @@ const delay = 0.15 + index * 0.1;
   .project__image-wrap {
     position: relative;
     overflow: hidden;
-    flex-shrink: 0;
+    flex: 0 0 225px;
+    height: 225px;
   }
 
   .project__image {
     width: 100%;
-    aspect-ratio: 4/3;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
@@ -93,17 +96,23 @@ const delay = 0.15 + index * 0.1;
   }
 
   .project__info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.25rem;
+    display: grid;
+    grid-template-rows: 2.9rem 4.1rem 4.25rem 2rem;
+    gap: 0.55rem;
+    padding: 1rem 1.25rem;
     flex: 1;
     min-height: 0;
+    overflow: hidden;
   }
 
   .project__name {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
+    line-height: 1.2;
     font-weight: 700;
     color: var(--clr-primary);
     text-align: left;
@@ -112,6 +121,10 @@ const delay = 0.15 + index * 0.1;
   }
 
   .project__description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     font-size: 0.85rem;
     color: var(--clr-muted);
     line-height: 1.6;
@@ -122,9 +135,12 @@ const delay = 0.15 + index * 0.1;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .project__stack-label {
+    flex-shrink: 0;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -135,7 +151,9 @@ const delay = 0.15 + index * 0.1;
   .project__stack-tags {
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
     gap: 0.35rem;
+    overflow: hidden;
   }
 
   .project__tag {
@@ -145,5 +163,10 @@ const delay = 0.15 + index * 0.1;
     background: var(--clr-bg);
     color: var(--clr-text);
     border: 1px solid var(--clr-border);
+  }
+
+  .project__actions {
+    height: 2rem;
+    overflow: hidden;
   }
 </style>
