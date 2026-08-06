@@ -38,12 +38,14 @@ import Photo from "./Photo.astro";
     margin: auto;
     align-items: center;
     flex: 1; /* ocupa todo el espacio disponible */
+    transform: translateY(-2rem);
   }
 
   @media (max-width: 800px) {
     .hero__grid {
       grid-template-columns: 1fr;
       gap: 3rem;
+      transform: translateY(-1rem);
     }
   }
 </style>
