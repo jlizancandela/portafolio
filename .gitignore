@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # warp md
 WARP.md
+
+# local tooling state
+.atl/
