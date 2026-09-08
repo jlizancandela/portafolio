@@ -7,77 +7,112 @@ interface ProjectData {
   imagen: string;
   descripcion: string;
   stack: string;
-  url: string;
-  github: string;
+  url?: string;
+  github?: string;
 }
 ---
 
 <section class="projects" id="proyectos">
-  <div class="projects__header">
-    <span class="projects__index" aria-hidden="true">03</span>
-    <h2 class="projects__title section-title">Proyectos</h2>
+  <div class="container">
+    <div class="projects-header">
+      <div class="projects-heading">
+        <div class="projects-eyebrow">
+          <span class="material-symbols-outlined" aria-hidden="true">developer_board</span>
+          <span>Portafolio &amp; Entregas</span>
+        </div>
+        <h2 class="projects-title">Proyectos Destacados</h2>
+        <p class="projects-subtitle">
+          Una selección de aplicaciones web que he construido de principio a fin.
+        </p>
+      </div>
+    </div>
+
+    <div class="projects-list">
+      {
+        projects.projects.map((project: ProjectData, i: number) => (
+          <Project {...project} index={i} />
+        ))
+      }
+    </div>
   </div>
-  <section class="projects__list">
-    {
-      projects.projects.map((project: ProjectData, i: number) => (
-        <Project {...project} index={i} />
-      ))
-    }
-  </section>
 </section>
 
 <style>
   .projects {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 4rem 2rem;
+    padding: var(--space-3xl) 0;
     position: relative;
   }
 
-  .projects__header {
-    max-width: 1100px;
-    margin: auto;
-    width: 100%;
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter-desktop);
   }
 
-  .projects__index {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(4rem, 10vw, 8rem);
+  .projects-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .projects-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .projects-eyebrow .material-symbols-outlined {
+    font-size: 22px;
+    color: var(--secondary);
+  }
+
+  .projects-eyebrow span:last-child {
+    font-family: var(--font-code);
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+  }
+
+  .projects-title {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
     font-weight: 700;
-    font-style: italic;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--clr-secondary);
-    opacity: 0.5;
-    line-height: 1;
-    animation: fadeIn 0.6s ease both;
+    color: var(--on-surface);
+    margin: 0;
   }
 
-  .projects__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
-    gap: 2.5rem;
-    justify-content: center;
+  .projects-subtitle {
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--on-surface-variant);
+    margin-top: 0.25rem;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+  @media (min-width: 768px) {
+    .projects-title {
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.025em;
     }
-    to {
-      opacity: 0.5;
+  }
+
+  .projects-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 1024px) {
+    .projects-list {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 640px) {
-    .projects {
-      padding: 3rem 1.5rem;
-    }
-    .projects__header {
-      gap: 1rem;
+    .container {
+      padding: 0 var(--gutter-mobile);
     }
   }
 </style>

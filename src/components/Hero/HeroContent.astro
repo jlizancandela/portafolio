@@ -1,55 +1,233 @@
 ---
-import HeroButtons from "./HeroButtons.astro";
+const { socials = [] } = Astro.props;
 ---
 
-<div class="hero__content">
-  <h1>
-    Hola 👋 Soy <span>Jorge Lizán</span>, desarrollador web full stack junior
+<div class="hero-content">
+  <div class="hero-pill">
+    <span class="hero-pill-dot" aria-hidden="true"></span>
+    <span class="hero-pill-text">👋 Hola mundo, soy desarrollador Web Full Stack</span>
+  </div>
+
+  <h1 class="hero-title">
+    Hola 👋 Soy <span class="hero-title-grad">Jorge Lizán</span>,<br />
+    desarrollador web full stack junior
   </h1>
-  <p class="hero__subtitle">
-    Construyo aplicaciones web completas con PHP, JavaScript, TypeScript, React y bases de datos SQL. Busco una primera oportunidad en desarrollo web o mantenimiento de aplicaciones.
+
+  <p class="hero-lead">
+    Construyo aplicaciones web completas con <span class="hl-primary">PHP</span>,{" "}
+    <span class="hl-secondary">JavaScript</span>,{" "}
+    <span class="hl-tertiary">TypeScript</span>, React y bases de datos SQL. Busco
+    una primera oportunidad en desarrollo web o mantenimiento de aplicaciones.
   </p>
-  <HeroButtons />
+
+  <div class="hero-actions">
+    <a class="btn-primary" href="#contacto">
+      <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+      <span>Contactar por Email</span>
+    </a>
+    <a class="btn-ghost" href="/Curriculum.pdf" download>
+      <span class="material-symbols-outlined" aria-hidden="true">download</span>
+      <span>Descargar Currículum</span>
+    </a>
+  </div>
+
+  <div class="hero-socials">
+    {
+      socials.map((s) => (
+        <a
+          class="hero-social"
+          href={s.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">{s.icon}</span>
+          <span>{s.label}</span>
+        </a>
+      ))
+    }
+  </div>
 </div>
 
 <style>
-  @media (max-width: 800px) {
-    .hero__content {
-      align-items: center;
-      text-align: center;
-    }
-  }
-
-  .hero__content {
+  .hero-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    gap: 1.5rem;
   }
 
-  .hero__content > h1 {
-    font-size: clamp(1.5rem, 5.5vw, 2.5rem);
-    line-height: 1.2;
-    font-weight: bold;
-    margin: 0;
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(38, 42, 52, 0.7);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-pill-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--secondary);
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .hero-pill-text {
+    font-family: var(--font-code);
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--secondary);
+  }
+
+  @keyframes ping {
+    0% { transform: scale(1); opacity: 1; }
+    75%, 100% { transform: scale(2); opacity: 0; }
+  }
+
+  .hero-title {
+    font-size: 36px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: var(--on-surface);
+    margin-bottom: var(--space-md);
     text-wrap: balance;
   }
 
-  .hero__content > h1 > span {
-    background: linear-gradient(purple, blue);
+  .hero-title-grad {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--tertiary) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: inherit;
+    -webkit-text-fill-color: transparent;
   }
 
-  .hero__subtitle {
-    max-width: 38rem;
-    margin: 0;
-    color: var(--clr-muted);
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    line-height: 1.6;
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 56px;
+      line-height: 64px;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  .hero-lead {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--on-surface-variant);
+    max-width: 36rem;
+    margin-bottom: var(--space-xl);
     text-wrap: balance;
+  }
+
+  .hl-primary { color: var(--primary); font-weight: 600; }
+  .hl-secondary { color: var(--secondary); font-weight: 600; }
+  .hl-tertiary { color: var(--tertiary); font-weight: 600; }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem var(--space-lg);
+    border-radius: var(--space-md);
+    background: var(--primary-container);
+    color: var(--on-primary-container);
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(128, 131, 255, 0.4);
+    transform: scale(1.02);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem var(--space-lg);
+    border-radius: var(--space-md);
+    background: var(--surface-container-high);
+    color: var(--on-surface);
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .btn-ghost:hover {
+    color: var(--secondary);
+    background: var(--surface-container-highest);
+  }
+
+  .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  .hero-socials {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .hero-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--space-md);
+    background: var(--surface-container-high);
+    color: var(--on-surface);
+    font-family: var(--font-code);
+    font-size: 12px;
+    line-height: 18px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .hero-social:hover {
+    background: var(--surface-container-highest);
+  }
+
+  .hero-social .material-symbols-outlined {
+    font-size: 18px;
+    color: var(--secondary);
+  }
+
+  @media (max-width: 800px) {
+    .hero-content {
+      align-items: center;
+      text-align: center;
+    }
+    .hero-lead {
+      text-align: center;
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+    .hero-socials {
+      justify-content: center;
+    }
   }
 </style>

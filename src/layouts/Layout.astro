@@ -1,23 +1,51 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import "../layouts/Layouts.css";
-import Mouse from "../components/Mouse.jsx";
+import Mouse from "../components/Mouse.astro";
 import Footer from "../components/Footer.astro";
+
+const siteUrl = "https://jorgelizancandela.com";
+const siteDescription =
+  "Portfolio de Jorge Lizán Candela, desarrollador web full stack junior especializado en PHP, JavaScript, TypeScript, React y bases de datos SQL.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: "Jorge Lizán Candela",
+      url: `${siteUrl}/`,
+      jobTitle: "Desarrollador web full stack junior",
+      description: siteDescription,
+      sameAs: [
+        "https://github.com/jlizancandela",
+        "https://www.linkedin.com/in/jlizancandela/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      name: "Portfolio de Jorge Lizán Candela",
+      url: `${siteUrl}/`,
+      inLanguage: "es"
+    }
+  ]
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html class="dark" lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-<title>Portafolio de Jorge L. Candela</title>
-    <meta property="og:title" content="Portafolio de Jorge L. Candela" />
-    <meta
-      property="og:description"
-      content="Portafolio de Jorge L. Candela, desarrollador web Trainee en proceso de aprendizaje."
-    />
+    <meta name="description" content={siteDescription} />
+    <link rel="canonical" href={`${siteUrl}/`} />
+    <title>Jorge Lizán Candela — Desarrollador Full Stack</title>
+    <meta property="og:title" content="Jorge Lizán Candela — Desarrollador Full Stack" />
+    <meta property="og:description" content={siteDescription} />
+    <meta property="og:url" content={`${siteUrl}/`} />
+    <meta property="og:site_name" content="Portfolio de Jorge Lizán Candela" />
+    <meta property="og:locale" content="es_ES" />
     <meta
       property="og:image"
       content="https://ik.imagekit.io/jlc84/portfolio/social_4JbAwi3bl?updatedAt=1756839084645"/>
@@ -25,45 +53,36 @@ import Footer from "../components/Footer.astro";
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@jlizancandela" />
     <meta name="twitter:creator" content="@jlizancandela" />
-    <meta name="twitter:title" content="Portafolio de Jorge L. Candela" />
-    <meta
-      name="twitter:description"
-      content="Portafolio de Jorge L. Candela, desarrollador web Trainee en proceso de aprendizaje."
-    />
+    <meta name="twitter:title" content="Jorge Lizán Candela — Desarrollador Full Stack" />
+    <meta name="twitter:description" content={siteDescription} />
     <meta
       name="twitter:image"
       content="https://ik.imagekit.io/jlc84/portfolio/social_4JbAwi3bl?updatedAt=1756839084645"
     />
-
+    <meta name="twitter:image:alt" content="Portfolio de Jorge Lizán Candela" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
   </head>
   <body>
     <Navbar />
-    <main id="main">
+    <main class="w-full pt-16 bg-surface min-h-[calc(100vh-180px)]">
       <slot />
-      <Mouse client:only="preact" />
+      <Mouse />
     </main>
     <Footer />
   </body>
 </html>
 
-<style>
-  html,
-  body {
-    font-size: large;
-    font-family: "Roboto", sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-  }
-
-  main {
-    max-width: 1100px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
+<style is:global>
+  @media (pointer: fine) {
+    html,
+    body,
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    label {
+      cursor: none !important;
+    }
   }
 </style>
