@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/preact": "^4.1.0",
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "^5.13.2",
     "codex-cli": "^0.1.3",
     "preact": "^10.27.1"

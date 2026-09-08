@@ -1,51 +1,92 @@
 ---
 import HeroContent from "./HeroContent.astro";
-import HeroFooter from "./HeroFooter.astro";
-import Photo from "./Photo.astro";
+import HeroCode from "./HeroCode.astro";
+
+const socials = [
+  { label: "GitHub", href: "https://github.com/jlizancandela", icon: "code" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/jlizancandela/",
+    icon: "work",
+  },
+];
 ---
 
-<section class="hero">
-  <div class="hero__grid">
-    <HeroContent />
-    <Photo />
-  </div>
+<section class="hero" id="inicio">
+  <div class="hero-ambient hero-ambient--1" aria-hidden="true"></div>
+  <div class="hero-ambient hero-ambient--2" aria-hidden="true"></div>
 
-  <HeroFooter />
+  <div class="hero-container">
+    <div class="hero-grid">
+      <div class="hero-col-left">
+        <HeroContent socials={socials} />
+      </div>
+      <div class="hero-col-right">
+        <HeroCode />
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
   .hero {
-    background-color: var(--clr-bg);
-    /* Evita cortes en móviles permitiendo que crezca si hace falta */
-    min-height: 100dvh;
-    height: auto; /* no forzar altura fija */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* contenido arriba/centro y flecha abajo */
-    align-items: center;
-    /* Permitir que el contenido salga si es más alto que el viewport */
-    overflow: visible;
-    padding: 2rem 1rem;
-    color: var(--clr-text);
+    position: relative;
+    padding: var(--space-2xl) 0 var(--space-3xl);
+    overflow: hidden;
   }
 
-  .hero__grid {
+  .hero-ambient {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-ambient--1 {
+    top: -6rem;
+    left: 25%;
+    width: 24rem;
+    height: 24rem;
+    background: rgba(128, 131, 255, 0.2);
+  }
+
+  .hero-ambient--2 {
+    top: 12rem;
+    right: 1rem;
+    width: 20rem;
+    height: 20rem;
+    background: rgba(0, 166, 224, 0.15);
+    filter: blur(100px);
+  }
+
+  .hero-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter-desktop);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
     align-items: center;
-    flex: 1; /* ocupa todo el espacio disponible */
-    transform: translateY(-2rem);
   }
 
-  @media (max-width: 800px) {
-    .hero__grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      transform: translateY(-1rem);
+  @media (min-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 7fr 5fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-container {
+      padding: 0 var(--gutter-mobile);
+    }
+    .hero {
+      padding-top: var(--space-xl);
     }
   }
 </style>

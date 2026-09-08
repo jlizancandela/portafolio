@@ -2,109 +2,121 @@
 ---
 
 <section class="sobre-mi" id="sobre-mi">
-  <div class="sobre-mi__inner">
-    <div class="sobre-mi__index" aria-hidden="true">01</div>
+  <div class="container">
+    <div class="sobre-mi-eyebrow">
+      <span class="material-symbols-outlined" aria-hidden="true">person</span>
+      <span>Acerca de mí</span>
+    </div>
 
-    <div class="sobre-mi__body">
-      <h2 class="sobre-mi__title section-title">Sobre mí</h2>
+    <div class="sobre-mi-grid">
+      <h2 class="sobre-mi-title">Sobre mí</h2>
 
-      <p class="sobre-mi__lead">
-        Soy Técnico Superior en Desarrollo de Aplicaciones Web y he desarrollado proyectos full stack con PHP, JavaScript, TypeScript, React y Preact.
-      </p>
+      <div class="sobre-mi-body">
+        <p class="sobre-mi-lead">
+          Soy Técnico Superior en Desarrollo de Aplicaciones Web y he desarrollado
+          proyectos full stack con <span class="hl-primary">PHP</span>,{" "}
+          <span class="hl-secondary">JavaScript</span>,{" "}
+          <span class="hl-tertiary">TypeScript</span>, React y Preact.
+        </p>
 
-      <p class="sobre-mi__text">
-        He trabajado con APIs REST, bases de datos SQL, testing automatizado y despliegues con Docker. Mi experiencia profesional anterior también me ha dado autonomía, responsabilidad y capacidad para organizar el trabajo.
-      </p>
+        <p class="sobre-mi-text">
+          He trabajado con APIs REST, bases de datos SQL, testing automatizado y
+          despliegues con Docker. Mi experiencia profesional anterior también me ha
+          dado autonomía, responsabilidad y capacidad para organizar el trabajo.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .sobre-mi {
-    padding: 6rem 2rem;
-    position: relative;
+    padding: var(--space-3xl) 0;
   }
 
-  .sobre-mi__inner {
-    max-width: 1100px;
-    margin: auto;
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter-desktop);
+  }
+
+  .sobre-mi-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .sobre-mi-eyebrow .material-symbols-outlined {
+    font-size: 22px;
+    color: var(--secondary);
+  }
+
+  .sobre-mi-eyebrow span:last-child {
+    font-family: var(--font-code);
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+  }
+
+  .sobre-mi-grid {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
     align-items: start;
   }
 
-  .sobre-mi__index {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(4rem, 10vw, 8rem);
+  @media (min-width: 768px) {
+    .sobre-mi-grid {
+      grid-template-columns: 5fr 7fr;
+    }
+  }
+
+  .sobre-mi-title {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
     font-weight: 700;
-    font-style: italic;
-    line-height: 0.9;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--clr-secondary);
-    user-select: none;
-    letter-spacing: -0.05em;
-    animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    color: var(--on-surface);
   }
 
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
+  @media (min-width: 768px) {
+    .sobre-mi-title {
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.025em;
     }
   }
 
-  .sobre-mi__body {
+  .sobre-mi-body {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    padding-top: 0.5rem;
-    animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    gap: var(--space-md);
   }
 
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .sobre-mi__lead {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    font-weight: 300;
-    color: var(--clr-text);
-    line-height: 1.65;
-    font-style: italic;
-  }
-
-  .sobre-mi__text {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  .sobre-mi-lead {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--on-surface);
     font-weight: 400;
-    color: var(--clr-muted);
-    line-height: 1.85;
+  }
+
+  .sobre-mi-text {
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--on-surface-variant);
     max-width: 58ch;
   }
 
+  .hl-primary { color: var(--primary); font-weight: 600; }
+  .hl-secondary { color: var(--secondary); font-weight: 600; }
+  .hl-tertiary { color: var(--tertiary); font-weight: 600; }
+
   @media (max-width: 640px) {
-    .sobre-mi {
-      padding: 4rem 1.5rem;
-    }
-    .sobre-mi__inner {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    .sobre-mi__index {
-      font-size: 5rem;
+    .container {
+      padding: 0 var(--gutter-mobile);
     }
   }
 </style>

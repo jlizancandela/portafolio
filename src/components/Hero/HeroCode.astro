@@ -1,0 +1,148 @@
+---
+const name = "'Jorge Lizán'";
+const title = "'Desarrollador Full Stack Junior'";
+const status = "'🔎 Buscando primera oportunidad'";
+
+const stack = [
+  { k: "frontend", v: "'React + TypeScript + Preact'" },
+  { k: "backend", v: "'PHP + APIs REST'" },
+  { k: "database", v: "'MySQL + SQL'" },
+  { k: "devops", v: "'Docker + Linux'" },
+];
+
+const stackLines = stack
+  .map(
+    (x, i) =>
+      `    <span class="tok-prop">${x.k}</span>: <span class="tok-str">${x.v}</span>${
+        i === stack.length - 1 ? "" : ","
+      }`
+  )
+  .join("\n");
+
+const code = `import { <span class="tok-type">Developer</span> } from '@core/profile';
+
+export const <span class="tok-fn">jorgeLizan</span>: <span class="tok-type">Developer</span> = {
+  <span class="tok-prop">name</span>: <span class="tok-str">${name}</span>,
+  <span class="tok-prop">title</span>: <span class="tok-str">${title}</span>,
+  <span class="tok-prop">status</span>: <span class="tok-str">${status}</span>,
+  <span class="tok-prop">coreStack</span>: {
+${stackLines}
+  },
+  <span class="tok-fn">buildWebApps</span>: () => <span class="tok-bool">true</span>
+};`;
+---
+
+<div class="code-window">
+  <div class="code-header">
+    <div class="code-dots">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-amber"></span>
+      <span class="dot dot-green"></span>
+    </div>
+    <span class="code-filename">developer.config.ts</span>
+    <span class="code-icon material-symbols-outlined">terminal</span>
+  </div>
+
+  <pre class="code-body" set:html={code}></pre>
+
+  <div class="code-footer">
+    <div class="code-footer-left">
+      <span class="material-symbols-outlined">check_circle</span>
+      <span>Typecheck: Passed (0 errors)</span>
+    </div>
+    <span class="code-footer-right">UTF-8</span>
+  </div>
+</div>
+
+<style>
+  .code-window {
+    border-radius: var(--space-lg);
+    background: rgba(24, 27, 37, 0.9);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem var(--space-md);
+    background: rgba(10, 14, 23, 0.8);
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+  }
+
+  .dot-red { background: rgba(239, 68, 68, 0.8); }
+  .dot-amber { background: rgba(245, 158, 11, 0.8); }
+  .dot-green { background: rgba(16, 185, 129, 0.8); }
+
+  .code-filename {
+    font-family: var(--font-code);
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--on-surface-variant);
+  }
+
+  .code-icon {
+    font-size: 16px;
+    color: var(--secondary);
+  }
+
+  .code-body {
+    margin: 0;
+    padding: var(--space-lg);
+    font-family: var(--font-code);
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    color: var(--on-surface);
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  .code-body :global(.tok-type) { color: var(--secondary); }
+  .code-body :global(.tok-str) { color: var(--secondary-fixed-dim); }
+  .code-body :global(.tok-prop) { color: var(--outline); }
+  .code-body :global(.tok-fn) { color: var(--primary); font-weight: 600; }
+  .code-body :global(.tok-bool) { color: var(--tertiary-container); font-weight: 600; }
+
+  .code-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem var(--space-md);
+    background: rgba(10, 14, 23, 0.6);
+    font-family: var(--font-code);
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--on-surface-variant);
+  }
+
+  .code-footer-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .code-footer-left .material-symbols-outlined {
+    font-size: 16px;
+    color: var(--secondary);
+  }
+
+  .code-footer-right {
+    color: var(--primary);
+  }
+</style>

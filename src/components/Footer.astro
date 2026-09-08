@@ -1,21 +1,121 @@
+---
+const socials = [
+  { label: "GitHub", href: "https://github.com/jlizancandela", icon: "code" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/jlizancandela/", icon: "work" },
+  { label: "Email", href: "mailto:jlizancandela@gmail.com", icon: "mail" },
+];
+---
+
 <footer class="footer">
-  <p class="footer__text">© 2026 Jorge Lizán — Desarrollador Web</p>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo" aria-hidden="true">&lt;/&gt;</span>
+        <span class="footer-tagline">Jorge Lizán • Construyendo aplicaciones web full stack</span>
+      </div>
+
+      <div class="footer-socials">
+        {
+          socials.map((s) => (
+            <a class="footer-social" href={s.href} target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined" aria-hidden="true">{s.icon}</span>
+              <span>{s.label}</span>
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="footer-copy">© 2026 Jorge Lizán. Todos los derechos reservados.</div>
+    </div>
+  </div>
 </footer>
 
 <style>
   .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1rem;
-    border-top: 1px solid var(--clr-border);
-    background: var(--clr-bg);
+    width: 100%;
+    background: var(--surface-container-lowest);
+    margin-top: var(--space-3xl);
   }
 
-  .footer__text {
-    font-size: 0.8rem;
-    color: var(--clr-muted);
-    margin: 0;
-    letter-spacing: 0.03em;
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--gutter-desktop);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .footer-logo {
+    font-family: var(--font-code);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--on-surface-variant);
+  }
+
+  .footer-socials {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .footer-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-code);
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--on-surface-variant);
+    transition: color 0.2s ease;
+  }
+
+  .footer-social:hover {
+    color: var(--secondary);
+  }
+
+  .footer-social .material-symbols-outlined {
+    font-size: 18px;
+  }
+
+  .footer-copy {
+    font-family: var(--font-code);
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--outline);
+  }
+
+  @media (max-width: 640px) {
+    .container {
+      padding: var(--space-xl) var(--gutter-mobile);
+    }
+    .footer-inner {
+      gap: var(--space-md);
+    }
   }
 </style>

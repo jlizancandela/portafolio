@@ -1,135 +1,247 @@
 ---
-import GithubICon from "../assets/icons/GithubICon.astro";
-import LinkedInIcon from "../assets/icons/LinkedInIcon.astro";
+const navLinks = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Habilidades", href: "#habilidades" },
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Contacto", href: "#contacto" },
+];
 ---
 
-<header class="navbar">
-  <nav class="navbar__inner">
-    <ul class="navbar__menu">
-      <li><a href="#main" class="navbar__link">Inicio</a></li>
-      <li><a href="#sobre-mi" class="navbar__link">Sobre mí</a></li>
-      <li><a href="#proyectos" class="navbar__link">Proyectos</a></li>
-      <li><a href="#contact" class="navbar__link">Contacto</a></li>
-    </ul>
+<header class="nav-fixed">
+  <div class="nav-inner">
+    <div class="nav-pill">
+      <div class="nav-brand">
+        <span class="nav-logo" aria-hidden="true">&lt;/&gt;</span>
+        <div class="nav-brand-text">
+          <span class="nav-name">Jorge Lizán</span>
+          <span class="nav-role">Web Full Stack</span>
+        </div>
+      </div>
 
-    <div class="navbar__social">
-      <a
-        href="https://github.com/jlizancandela"
-        class="navbar__social-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-      >
-        <GithubICon width="18" height="18" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/jlizancandela/"
-        class="navbar__social-link"
-        aria-label="LinkedIn"
-      >
-        <LinkedInIcon width="18" height="18" />
-      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              data-nav-link={link.href}
+              class="nav-link"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="nav-status">
+        <span class="nav-status-dot" aria-hidden="true"></span>
+        <span class="nav-status-text">Disponible para proyectos</span>
+      </div>
     </div>
-  </nav>
+  </div>
 </header>
 
 <style>
-  .navbar {
-    padding: 1rem 2rem;
-    position: sticky;
+  .nav-fixed {
+    position: fixed;
     top: 0;
-    z-index: 100;
-    background: var(--clr-bg);
-    border-bottom: 1px solid var(--clr-border);
-    backdrop-filter: blur(8px);
+    inset-inline: 0;
+    z-index: 50;
   }
 
-  .navbar__inner {
-    max-width: 1100px;
-    margin: auto;
+  .nav-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-sm) var(--gutter-desktop);
+  }
+
+  .nav-pill {
+    height: 4rem;
+    padding-inline: var(--space-md);
+    border-radius: 9999px;
+    background: rgba(28, 31, 41, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 1rem;
+    gap: var(--space-sm);
   }
 
-  .navbar__menu {
+  .nav-brand {
     display: flex;
-    flex-direction: row;
-    gap: 1.25rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-  }
-
-  .navbar__link {
-    text-decoration: none;
-    color: var(--clr-text);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    transition: color 0.2s ease;
-    position: relative;
-  }
-
-  .navbar__link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--clr-secondary);
-    transition: width 0.3s ease;
-  }
-
-  .navbar__link:hover {
-    color: var(--clr-secondary);
-    text-shadow: none;
-    transform: none;
-  }
-
-  .navbar__link:hover::after {
-    width: 100%;
-  }
-
-  .navbar__social {
-    display: flex;
-    gap: 0.75rem;
     align-items: center;
+    gap: var(--space-sm);
   }
 
-  .navbar__social-link {
+  .nav-logo {
+    font-family: var(--font-code);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary);
+    background: rgba(123, 208, 255, 0.1);
+    border: 1px solid rgba(123, 208, 255, 0.25);
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
     display: grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    border: 1px solid var(--clr-border);
-    background: var(--clr-surface);
-    color: var(--clr-text);
-    transition: all 0.25s ease;
   }
 
-  .navbar__social-link:hover {
-    border-color: var(--clr-secondary);
-    color: var(--clr-secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
-    text-shadow: none;
+  .nav-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-name {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    color: var(--on-surface);
+  }
+
+  .nav-role {
+    font-family: var(--font-code);
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-top: 0.25rem;
+  }
+
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: var(--space-2xs);
+    padding: 0.25rem;
+    border-radius: 9999px;
+    background: rgba(24, 27, 37, 0.6);
+  }
+
+  .nav-link {
+    padding: 0.375rem var(--space-md);
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--on-surface-variant);
+    border-radius: 9999px;
+    transition: color 0.2s ease, background 0.2s ease;
+    font-family: var(--font-display);
+  }
+
+  .nav-link:hover {
+    color: var(--on-surface);
+  }
+
+  .nav-link--active {
+    background: var(--primary-container);
+    color: var(--on-primary-container);
+    font-weight: 600;
+  }
+
+  .nav-status {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(49, 53, 63, 0.8);
+    color: var(--secondary);
+  }
+
+  .nav-status-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--secondary);
+    animation: pulse 2s infinite;
+  }
+
+  .nav-status-text {
+    font-family: var(--font-code);
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  @media (min-width: 768px) {
+    .nav-links {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nav-status {
+      display: flex;
+    }
   }
 
   @media (max-width: 640px) {
-    .navbar {
-      padding: 0.75rem 1.5rem;
+    .nav-inner {
+      padding: var(--space-sm) var(--gutter-mobile);
     }
-    .navbar__menu {
-      gap: 1.25rem;
-    }
-    .navbar__link {
-      font-size: 0.8rem;
+    .nav-name {
+      font-size: 16px;
     }
   }
 </style>
+
+<script>
+  const links = Array.from(document.querySelectorAll("[data-nav-link]"));
+
+  const setActive = (href) => {
+    links.forEach((link) => {
+      const active = link.dataset.navLink === href;
+      link.classList.toggle("nav-link--active", active);
+    });
+  };
+
+  const onScroll = () => {
+    const scrollY = window.scrollY;
+    const viewport = window.innerHeight;
+    const midpoint = viewport / 2;
+
+    let activeHref = links[0]?.dataset.navLink;
+    let closestDistance = Number.POSITIVE_INFINITY;
+
+    links.forEach((link) => {
+      const el = document.querySelector(link.dataset.navLink);
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+
+      // Keep the active link tied to the section containing the viewport midpoint.
+      if (rect.top <= midpoint && rect.bottom > midpoint) {
+        activeHref = link.dataset.navLink;
+        closestDistance = 0;
+        return;
+      }
+
+      // Use the nearest section while the midpoint is between two sections.
+      const distance = Math.min(Math.abs(rect.top - midpoint), Math.abs(rect.bottom - midpoint));
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        activeHref = link.dataset.navLink;
+      }
+    });
+
+    if (scrollY < 80) {
+      activeHref = links[0]?.dataset.navLink;
+    }
+
+    setActive(activeHref);
+  };
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => setActive(link.dataset.navLink));
+  });
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
+</script>
