@@ -1,122 +1,15 @@
----
----
-
 <section class="sobre-mi" id="sobre-mi">
   <div class="container">
     <div class="sobre-mi-eyebrow">
       <span class="material-symbols-outlined" aria-hidden="true">person</span>
       <span>Acerca de mí</span>
     </div>
-
     <div class="sobre-mi-grid">
       <h2 class="sobre-mi-title">Sobre mí</h2>
-
       <div class="sobre-mi-body">
-        <p class="sobre-mi-lead">
-          Soy Técnico Superior en Desarrollo de Aplicaciones Web y he desarrollado
-          proyectos full stack con <span class="hl-primary">PHP</span>,{" "}
-          <span class="hl-secondary">JavaScript</span>,{" "}
-          <span class="hl-tertiary">TypeScript</span>, React y Preact.
-        </p>
-
-        <p class="sobre-mi-text">
-          He trabajado con APIs REST, bases de datos SQL, testing automatizado y
-          despliegues con Docker. Mi experiencia profesional anterior también me ha
-          dado autonomía, responsabilidad y capacidad para organizar el trabajo.
-        </p>
+        <p class="sobre-mi-lead">Soy Técnico Superior en Desarrollo de Aplicaciones Web y he desarrollado proyectos full stack con <span class="hl-primary">PHP</span>, <span class="hl-secondary">JavaScript</span>, <span class="hl-tertiary">TypeScript</span>, React y Preact.</p>
+        <p class="sobre-mi-text">He trabajado con APIs REST, bases de datos SQL, testing automatizado y despliegues con Docker. Mi experiencia profesional anterior también me ha dado autonomía, responsabilidad y capacidad para organizar el trabajo.</p>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .sobre-mi {
-    padding: var(--space-3xl) 0;
-  }
-
-  .container {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--gutter-desktop);
-  }
-
-  .sobre-mi-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: var(--space-lg);
-  }
-
-  .sobre-mi-eyebrow .material-symbols-outlined {
-    font-size: 22px;
-    color: var(--secondary);
-  }
-
-  .sobre-mi-eyebrow span:last-child {
-    font-family: var(--font-code);
-    font-size: 11px;
-    line-height: 16px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--secondary);
-  }
-
-  .sobre-mi-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    align-items: start;
-  }
-
-  @media (min-width: 768px) {
-    .sobre-mi-grid {
-      grid-template-columns: 5fr 7fr;
-    }
-  }
-
-  .sobre-mi-title {
-    font-size: 28px;
-    line-height: 36px;
-    letter-spacing: -0.02em;
-    font-weight: 700;
-    color: var(--on-surface);
-  }
-
-  @media (min-width: 768px) {
-    .sobre-mi-title {
-      font-size: 40px;
-      line-height: 48px;
-      letter-spacing: -0.025em;
-    }
-  }
-
-  .sobre-mi-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .sobre-mi-lead {
-    font-size: 18px;
-    line-height: 28px;
-    color: var(--on-surface);
-    font-weight: 400;
-  }
-
-  .sobre-mi-text {
-    font-size: 15px;
-    line-height: 24px;
-    color: var(--on-surface-variant);
-    max-width: 58ch;
-  }
-
-  .hl-primary { color: var(--primary); font-weight: 600; }
-  .hl-secondary { color: var(--secondary); font-weight: 600; }
-  .hl-tertiary { color: var(--tertiary); font-weight: 600; }
-
-  @media (max-width: 640px) {
-    .container {
-      padding: 0 var(--gutter-mobile);
-    }
-  }
-</style>

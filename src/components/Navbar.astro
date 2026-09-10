@@ -36,161 +36,21 @@ const navLinks = [
         <span class="nav-status-dot" aria-hidden="true"></span>
         <span class="nav-status-text">Disponible para proyectos</span>
       </div>
+
+      <div class="nav-theme" aria-label="Preferencia de tema" data-theme-switcher>
+        <button class="theme-option" type="button" data-theme-option="light" aria-label="Tema claro" aria-pressed="false">
+          <span class="material-symbols-outlined" aria-hidden="true">light_mode</span>
+        </button>
+        <button class="theme-option" type="button" data-theme-option="system" aria-label="Usar preferencias del sistema" aria-pressed="true">
+          <span class="material-symbols-outlined" aria-hidden="true">contrast</span>
+        </button>
+        <button class="theme-option" type="button" data-theme-option="dark" aria-label="Tema oscuro" aria-pressed="false">
+          <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+        </button>
+      </div>
     </div>
   </div>
 </header>
-
-<style>
-  .nav-fixed {
-    position: fixed;
-    top: 0;
-    inset-inline: 0;
-    z-index: 50;
-  }
-
-  .nav-inner {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: var(--space-sm) var(--gutter-desktop);
-  }
-
-  .nav-pill {
-    height: 4rem;
-    padding-inline: var(--space-md);
-    border-radius: 9999px;
-    background: rgba(28, 31, 41, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-sm);
-  }
-
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
-  .nav-logo {
-    font-family: var(--font-code);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--secondary);
-    background: rgba(123, 208, 255, 0.1);
-    border: 1px solid rgba(123, 208, 255, 0.25);
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 9999px;
-    display: grid;
-    place-items: center;
-  }
-
-  .nav-brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .nav-name {
-    font-size: 18px;
-    line-height: 26px;
-    letter-spacing: -0.01em;
-    font-weight: 600;
-    color: var(--on-surface);
-  }
-
-  .nav-role {
-    font-family: var(--font-code);
-    font-size: 11px;
-    line-height: 16px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--secondary);
-    margin-top: 0.25rem;
-  }
-
-  .nav-links {
-    display: none;
-    align-items: center;
-    gap: var(--space-2xs);
-    padding: 0.25rem;
-    border-radius: 9999px;
-    background: rgba(24, 27, 37, 0.6);
-  }
-
-  .nav-link {
-    padding: 0.375rem var(--space-md);
-    font-size: 13px;
-    line-height: 20px;
-    color: var(--on-surface-variant);
-    border-radius: 9999px;
-    transition: color 0.2s ease, background 0.2s ease;
-    font-family: var(--font-display);
-  }
-
-  .nav-link:hover {
-    color: var(--on-surface);
-  }
-
-  .nav-link--active {
-    background: var(--primary-container);
-    color: var(--on-primary-container);
-    font-weight: 600;
-  }
-
-  .nav-status {
-    display: none;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    background: rgba(49, 53, 63, 0.8);
-    color: var(--secondary);
-  }
-
-  .nav-status-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 9999px;
-    background: var(--secondary);
-    animation: pulse 2s infinite;
-  }
-
-  .nav-status-text {
-    font-family: var(--font-code);
-    font-size: 12px;
-    line-height: 18px;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
-  @media (min-width: 768px) {
-    .nav-links {
-      display: flex;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .nav-status {
-      display: flex;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .nav-inner {
-      padding: var(--space-sm) var(--gutter-mobile);
-    }
-    .nav-name {
-      font-size: 16px;
-    }
-  }
-</style>
 
 <script>
   const links = Array.from(document.querySelectorAll("[data-nav-link]"));
@@ -244,4 +104,18 @@ const navLinks = [
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
   onScroll();
+
+  const themeOptions = Array.from(document.querySelectorAll("[data-theme-option]"));
+  const setTheme = (theme) => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("portfolio-theme", theme);
+    themeOptions.forEach((option) => {
+      option.setAttribute("aria-pressed", String(option.dataset.themeOption === theme));
+    });
+  };
+
+  themeOptions.forEach((option) => {
+    option.addEventListener("click", () => setTheme(option.dataset.themeOption));
+  });
+  setTheme(localStorage.getItem("portfolio-theme") || "system");
 </script>

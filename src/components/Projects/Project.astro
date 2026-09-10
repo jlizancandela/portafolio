@@ -7,178 +7,26 @@ interface Props {
   url?: string;
   github?: string;
   index?: number;
+  variant?: "default" | "featured";
 }
 
-const { nombre, imagen, descripcion, stack, url, github, index = 0 } = Astro.props;
-const delay = 0.05 * index;
+const { nombre, imagen, descripcion, stack, url, github, index = 0, variant = "default" } = Astro.props;
 ---
 
-<article class="project-card" style={`animation-delay: ${delay}s`}>
+<article class:list={["project-card", `project-card--${variant}`]} data-index={index}>
   <div class="project-media">
-    <img
-      class="project-image"
-      src={imagen}
-      alt={`Captura de ${nombre}: ${descripcion}`}
-      loading="lazy"
-    />
+    <img class="project-image" src={imagen} alt={`Captura de ${nombre}: ${descripcion}`} loading="lazy" />
     <div class="project-overlay" aria-hidden="true"></div>
   </div>
-
   <div class="project-body">
     <h3 class="project-name">{nombre}</h3>
     <p class="project-desc">{descripcion}</p>
-
     <div class="project-tags">
-      {stack.split(',').map((s: string) => (
-        <span class="project-tag">{s.trim()}</span>
-      ))}
+      {stack.split(",").map((s: string) => <span class="project-tag">{s.trim()}</span>)}
     </div>
-
     <div class="project-actions">
-      {url && (
-        <a class="project-btn project-btn--primary" href={url} target="_blank" rel="noopener noreferrer">
-          <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
-          <span>Ver Demo</span>
-        </a>
-      )}
-      {github && (
-        <a class="project-btn project-btn--ghost" href={github} target="_blank" rel="noopener noreferrer">
-          <span class="material-symbols-outlined" aria-hidden="true">code</span>
-          <span>Código</span>
-        </a>
-      )}
+      {url && <a class="project-btn project-btn--primary" href={url} target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined" aria-hidden="true">open_in_new</span><span>Ver Demo</span></a>}
+      {github && <a class="project-btn project-btn--ghost" href={github} target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined" aria-hidden="true">code</span><span>Código</span></a>}
     </div>
   </div>
 </article>
-
-<style>
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--space-lg);
-    background: rgba(28, 31, 41, 0.7);
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    animation: cardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .project-card:hover {
-    border-color: rgba(128, 131, 255, 0.5);
-    box-shadow: 0 0 20px -5px rgba(128, 131, 255, 0.25), 0 8px 16px -4px rgba(0, 0, 0, 0.5);
-  }
-
-  @keyframes cardIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .project-media {
-    position: relative;
-    height: 15rem;
-    overflow: hidden;
-    background: var(--surface-container-highest);
-    flex-shrink: 0;
-  }
-
-  .project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-
-  .project-card:hover .project-image {
-    transform: scale(1.05);
-  }
-
-  .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(28, 31, 41, 1) 0%, rgba(28, 31, 41, 0.3) 45%, transparent 100%);
-    pointer-events: none;
-  }
-
-  .project-body {
-    padding: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .project-name {
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.015em;
-    font-weight: 600;
-    color: var(--on-surface);
-  }
-
-  .project-desc {
-    font-size: 15px;
-    line-height: 24px;
-    color: var(--on-surface-variant);
-    margin-top: 0.5rem;
-    margin-bottom: var(--space-md);
-  }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: var(--space-lg);
-  }
-
-  .project-tag {
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    background: var(--surface-container-high);
-    color: var(--on-surface);
-    font-family: var(--font-code);
-    font-size: 12px;
-    line-height: 18px;
-  }
-
-  .project-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    margin-top: auto;
-  }
-
-  .project-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.5rem 1rem;
-    border-radius: var(--space-md);
-    font-size: 13px;
-    line-height: 20px;
-    transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease;
-  }
-
-  .project-btn--primary {
-    background: var(--primary-container);
-    color: var(--on-primary-container);
-    font-weight: 600;
-  }
-
-  .project-btn--primary:hover {
-    opacity: 0.9;
-  }
-
-  .project-btn--ghost {
-    background: var(--surface-container-high);
-    color: var(--on-surface);
-  }
-
-  .project-btn--ghost:hover {
-    color: var(--secondary);
-  }
-
-  .material-symbols-outlined {
-    font-size: 18px;
-  }
-</style>

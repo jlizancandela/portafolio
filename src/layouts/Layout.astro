@@ -1,6 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
-import "../layouts/Layouts.css";
+import "../styles/portfolio.css";
 import Mouse from "../components/Mouse.astro";
 import Footer from "../components/Footer.astro";
 
@@ -32,7 +32,7 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html class="dark" lang="es">
+<html data-theme="system" lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,28 +61,17 @@ const structuredData = {
     />
     <meta name="twitter:image:alt" content="Portfolio de Jorge Lizán Candela" />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    <script is:inline>
+      const savedTheme = localStorage.getItem("portfolio-theme");
+      document.documentElement.dataset.theme = savedTheme || "system";
+    </script>
   </head>
   <body>
     <Navbar />
-    <main class="w-full pt-16 bg-surface min-h-[calc(100vh-180px)]">
+    <main class="page-main">
       <slot />
       <Mouse />
     </main>
     <Footer />
   </body>
 </html>
-
-<style is:global>
-  @media (pointer: fine) {
-    html,
-    body,
-    a,
-    button,
-    input,
-    textarea,
-    select,
-    label {
-      cursor: none !important;
-    }
-  }
-</style>
