@@ -75,6 +75,21 @@ npm run build
 npm run preview
 ```
 
+### Tests
+
+El layout responsive está cubierto por un smoke de Playwright que corre en tres
+viewports: 1280, 360 y 320 con touch. Cubre desbordes horizontales, el header, las
+grillas, el menú móvil y el cursor propio en táctil.
+
+```bash
+npm test                            # construye el sitio y corre la suite
+npx playwright install chromium     # una sola vez, si no tenés el navegador
+```
+
+Los specs viven en `tests/` y corren contra `astro preview` (el build real, no el dev
+server). En GitHub Actions el job `layout` hace lo mismo en cada pull request y sube
+el reporte como artifact si algo falla.
+
 ---
 
 ## Despliegue
