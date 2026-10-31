@@ -31,3 +31,4 @@ WARP.md
 
 # local tooling state
 .atl/
+.playwright-mcp/

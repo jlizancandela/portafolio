@@ -18,36 +18,49 @@ const navLinks = [
         </div>
       </div>
 
-      <nav class="nav-links" aria-label="Navegación principal">
-        {
-          navLinks.map((link) => (
-            <a
-              href={link.href}
-              data-nav-link={link.href}
-              class="nav-link"
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </nav>
+      <div class="nav-menu" id="nav-menu" data-nav-menu>
+        <nav class="nav-links" aria-label="Navegación principal">
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                data-nav-link={link.href}
+                class="nav-link"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
 
-      <div class="nav-status">
-        <span class="nav-status-dot" aria-hidden="true"></span>
-        <span class="nav-status-text">Disponible para proyectos</span>
+        <div class="nav-status">
+          <span class="nav-status-dot" aria-hidden="true"></span>
+          <span class="nav-status-text">Disponible para proyectos</span>
+        </div>
+
+        <div class="nav-theme" role="group" aria-label="Preferencia de tema" data-theme-switcher>
+          <button class="theme-option" type="button" data-theme-option="light" aria-label="Tema claro" aria-pressed="false">
+            <span class="material-symbols-outlined" aria-hidden="true">light_mode</span>
+          </button>
+          <button class="theme-option" type="button" data-theme-option="system" aria-label="Usar preferencias del sistema" aria-pressed="true">
+            <span class="material-symbols-outlined" aria-hidden="true">contrast</span>
+          </button>
+          <button class="theme-option" type="button" data-theme-option="dark" aria-label="Tema oscuro" aria-pressed="false">
+            <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+          </button>
+        </div>
       </div>
 
-      <div class="nav-theme" aria-label="Preferencia de tema" data-theme-switcher>
-        <button class="theme-option" type="button" data-theme-option="light" aria-label="Tema claro" aria-pressed="false">
-          <span class="material-symbols-outlined" aria-hidden="true">light_mode</span>
-        </button>
-        <button class="theme-option" type="button" data-theme-option="system" aria-label="Usar preferencias del sistema" aria-pressed="true">
-          <span class="material-symbols-outlined" aria-hidden="true">contrast</span>
-        </button>
-        <button class="theme-option" type="button" data-theme-option="dark" aria-label="Tema oscuro" aria-pressed="false">
-          <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
-        </button>
-      </div>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Abrir menú"
+        data-nav-toggle
+      >
+        <span class="material-symbols-outlined" aria-hidden="true" data-nav-toggle-icon>menu</span>
+      </button>
     </div>
   </div>
 </header>
@@ -118,4 +131,46 @@ const navLinks = [
     option.addEventListener("click", () => setTheme(option.dataset.themeOption));
   });
   setTheme(localStorage.getItem("portfolio-theme") || "system");
+
+  // Menú móvil: los enlaces y el selector de tema viven en el mismo bloque, así
+  // que en pantallas angostas se despliegan bajo el header y en escritorio
+  // vuelven a su sitio con `display: contents`.
+  const menu = document.querySelector("[data-nav-menu]");
+  const menuToggle = document.querySelector("[data-nav-toggle]");
+  const menuIcon = document.querySelector("[data-nav-toggle-icon]");
+  const desktopQuery = window.matchMedia("(min-width: 768px)");
+
+  const isMenuOpen = () => menu?.classList.contains("nav-menu--open") ?? false;
+
+  const setMenu = (open) => {
+    if (!menu || !menuToggle) return;
+    menu.classList.toggle("nav-menu--open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    if (menuIcon) menuIcon.textContent = open ? "close" : "menu";
+  };
+
+  menuToggle?.addEventListener("click", () => setMenu(!isMenuOpen()));
+
+  menu?.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest("a")) setMenu(false);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!isMenuOpen()) return;
+    if (event.target instanceof Element && event.target.closest(".nav-pill")) return;
+    setMenu(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !isMenuOpen()) return;
+    setMenu(false);
+    menuToggle?.focus();
+  });
+
+  // Al cruzar a escritorio el panel deja de existir como bloque: cerramos para
+  // que el estado de `aria-expanded` no quede mintiendo si se vuelve a móvil.
+  desktopQuery.addEventListener("change", (event) => {
+    if (event.matches) setMenu(false);
+  });
 </script>
