@@ -1,9 +1,9 @@
 ---
 const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Habilidades", href: "#habilidades" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", href: "#inicio", title: "Ir a la sección de inicio" },
+  { label: "Habilidades", href: "#habilidades", title: "Ir a la sección de habilidades" },
+  { label: "Proyectos", href: "#proyectos", title: "Ir a la sección de proyectos" },
+  { label: "Contacto", href: "#contacto", title: "Ir a la sección de contacto" },
 ];
 ---
 
@@ -26,6 +26,7 @@ const navLinks = [
                 href={link.href}
                 data-nav-link={link.href}
                 class="nav-link"
+                title={link.title}
               >
                 {link.label}
               </a>
