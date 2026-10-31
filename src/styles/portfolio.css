@@ -60,17 +60,41 @@ html[data-theme='dark'] {
   --outline: #908fa0;
   --outline-variant: #464554;
   --primary: #c0c1ff;
-  --on-primary-container: #0d0096;
+  --on-primary-container: #ffffff;
   --secondary: #7bd0ff;
   --tertiary: #bdc2ff;
   --tertiary-container: #7c87f3;
+  --error: #ffb4ab;
   --shadow-card: 0 4px 12px rgba(0, 0, 0, .3);
   --shadow-hover: 0 0 20px -5px rgba(128, 131, 255, .25), 0 8px 16px -4px rgba(0, 0, 0, .5);
 }
 
 @media (prefers-color-scheme: dark) {
   html[data-theme='system'] { color-scheme: dark; }
-  html[data-theme='system'] { --surface: #0f131c; --surface-container-lowest: #0a0e17; --surface-container-low: #181b25; --surface-container: #1c1f29; --surface-container-high: #262a34; --surface-container-highest: #31353f; --on-surface: #dfe2ef; --on-surface-variant: #c7c4d7; --outline: #908fa0; --primary: #c0c1ff; --secondary: #7bd0ff; --tertiary: #bdc2ff; }
+  html[data-theme='system'] { --surface: #0f131c; --surface-container-lowest: #0a0e17; --surface-container-low: #181b25; --surface-container: #1c1f29; --surface-container-high: #262a34; --surface-container-highest: #31353f; --on-surface: #dfe2ef; --on-surface-variant: #c7c4d7; --outline: #908fa0; --primary: #c0c1ff; --secondary: #7bd0ff; --tertiary: #bdc2ff; --error: #ffb4ab; }
+}
+
+/*
+ * El widget del chat alineado con la paleta del sitio (contrato de tema del
+ * chatbox, RF-F61). El widget resuelve sus tokens desde estos, así que un solo
+ * mapeo vale para claro y oscuro: apunta a los roles del sitio, que ya cambian
+ * con el tema. Sin este bloque el widget pinta su propia paleta, que es teal.
+ *
+ * `border` usa `--outline` y no `--outline-variant`: el widget exige 3:1 para
+ * los bordes de sus controles, y la hairline del sitio no llega (1.71:1). El
+ * resto de los pares los verifica `tests/theme-contrast.spec.ts`.
+ */
+body {
+  --chatbox-host-text: var(--on-surface);
+  --chatbox-host-surface: var(--surface-container-lowest);
+  --chatbox-host-primary: var(--primary);
+  --chatbox-host-link: var(--secondary);
+  --chatbox-host-border: var(--outline);
+  --chatbox-host-focus: var(--primary);
+  --chatbox-host-error: var(--error);
+  --chatbox-host-surface-subtle: var(--surface-container-low);
+  --chatbox-host-surface-raised: var(--surface-container-high);
+  --chatbox-host-accent-container: var(--primary);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
