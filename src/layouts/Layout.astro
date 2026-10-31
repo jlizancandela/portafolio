@@ -3,8 +3,13 @@ import Navbar from "../components/Navbar.astro";
 import "../styles/portfolio.css";
 import Mouse from "../components/Mouse.astro";
 import Footer from "../components/Footer.astro";
+import { Chatbox } from "@jlizancandela/chatbox";
 
 const siteUrl = "https://jorgelizancandela.com";
+// La URL del API del chat. Llega del entorno de build (Netlify → PUBLIC_CHATBOX_API_URL).
+// El prefijo PUBLIC_ es lo que permite a Astro entregarla al navegador, y el widget corre
+// en el navegador: sin él la variable no existiría en el cliente.
+const chatboxApiUrl = import.meta.env.PUBLIC_CHATBOX_API_URL;
 const siteDescription =
   "Portfolio de Jorge Lizán Candela, desarrollador web full stack junior especializado en PHP, JavaScript, TypeScript, React y bases de datos SQL.";
 const structuredData = {
@@ -73,5 +78,14 @@ const structuredData = {
       <Mouse />
     </main>
     <Footer />
+    {
+      /* El widget solo se monta si hay URL de API. Sin ella, el build de un entorno
+         que no la tenga (una previsualización, por ejemplo) no rompe el sitio: sale
+         sin chat. `client:only` porque el widget es puramente interactivo y usa
+         almacenamiento del navegador desde el primer render. */
+      chatboxApiUrl && (
+        <Chatbox client:only="preact" apiUrl={chatboxApiUrl} />
+      )
+    }
   </body>
 </html>
