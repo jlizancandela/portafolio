@@ -53,6 +53,22 @@ npm run dev
 
 El servidor de desarrollo se inicia en `http://localhost:4321`.
 
+### Widget del chat
+
+El asistente de Jorge se monta en `src/layouts/Layout.astro` y llega como dependencia de
+git (`@jlizancandela/chatbox`). Necesita una variable de entorno **en el build**:
+
+```bash
+PUBLIC_CHATBOX_API_URL=https://api.jorgelizancandela.com npm run dev
+```
+
+El prefijo `PUBLIC_` no es decorativo: Astro solo entrega al navegador las variables con
+ese prefijo, y el widget corre en el navegador. Sin la variable, el sitio se compila y se
+sirve **sin chat** — no rompe, pero tampoco aparece.
+
+En Netlify la variable vive en *Site configuration → Environment variables*, con scope
+`Builds`.
+
 ### Otros comandos
 
 ```bash
