@@ -82,9 +82,13 @@ const structuredData = {
       /* El widget solo se monta si hay URL de API. Sin ella, el build de un entorno
          que no la tenga (una previsualización, por ejemplo) no rompe el sitio: sale
          sin chat. `client:only` porque el widget es puramente interactivo y usa
-         almacenamiento del navegador desde el primer render. */
+         almacenamiento del navegador desde el primer render.
+
+         `variant="drawer"`: el asistente se abre como un panel de altura completa
+         pegado al borde derecho, superpuesto a la página. La variante flotante —la
+         tarjeta de 380 px en la esquina— tapa el contenido en pantallas grandes. */
       chatboxApiUrl && (
-        <Chatbox client:only="preact" apiUrl={chatboxApiUrl} />
+        <Chatbox client:only="preact" apiUrl={chatboxApiUrl} variant="drawer" />
       )
     }
   </body>
