@@ -13,7 +13,11 @@ export default defineConfig({
   reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
   use: { baseURL, trace: "retain-on-failure" },
   webServer: {
-    command: `npm run build && npm run preview -- --port ${port}`,
+    // En CI el build es un paso aparte y con su propio error legible; acá
+    // alcanza con servir lo ya construido.
+    command: process.env.CI
+      ? `npm run preview -- --port ${port}`
+      : `npm run build && npm run preview -- --port ${port}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
