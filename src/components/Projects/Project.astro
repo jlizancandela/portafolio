@@ -25,8 +25,8 @@ const { nombre, imagen, descripcion, stack, url, github, index = 0, variant = "d
       {stack.split(",").map((s: string) => <span class="project-tag">{s.trim()}</span>)}
     </div>
     <div class="project-actions">
-      {url && <a class="project-btn project-btn--primary" href={url} target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined" aria-hidden="true">open_in_new</span><span>Ver Demo</span></a>}
-      {github && <a class="project-btn project-btn--ghost" href={github} target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined" aria-hidden="true">code</span><span>Código</span></a>}
+      {url && <a class="project-btn project-btn--primary" href={url} target="_blank" rel="noopener noreferrer" title={`Ver la demo en vivo de ${nombre} (se abre en una pestaña nueva)`}><span class="material-symbols-outlined" aria-hidden="true">open_in_new</span><span>Ver Demo</span><span class="sr-only">de {nombre}</span></a>}
+      {github && <a class="project-btn project-btn--ghost" href={github} target="_blank" rel="noopener noreferrer" title={`Ver el código de ${nombre} en GitHub (se abre en una pestaña nueva)`}><span class="material-symbols-outlined" aria-hidden="true">code</span><span>Código</span><span class="sr-only">de {nombre}</span></a>}
     </div>
   </div>
 </article>

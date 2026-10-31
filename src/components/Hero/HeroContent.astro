@@ -21,11 +21,11 @@ const { socials = [] } = Astro.props;
   </p>
 
   <div class="hero-actions">
-    <a class="btn-primary" href="#contacto">
+    <a class="btn-primary" href="#contacto" title="Ir a la sección de contacto">
       <span class="material-symbols-outlined" aria-hidden="true">mail</span>
       <span>Contactar por Email</span>
     </a>
-    <a class="btn-ghost" href="/Curriculum.pdf" download>
+    <a class="btn-ghost" href="/Curriculum.pdf" download title="Descargar el currículum en PDF">
       <span class="material-symbols-outlined" aria-hidden="true">download</span>
       <span>Descargar Currículum</span>
     </a>
@@ -37,8 +37,9 @@ const { socials = [] } = Astro.props;
         <a
           class="hero-social"
           href={s.href}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={s.target}
+          rel={s.rel}
+          title={s.title}
         >
           <span class="material-symbols-outlined" aria-hidden="true">{s.icon}</span>
           <span>{s.label}</span>
