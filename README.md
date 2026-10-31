@@ -24,7 +24,6 @@ Portfolio personal de **Jorge Lizán**, desarrollador web junior. Presenta una s
 ## Secciones
 
 - **Presentación** — perfil profesional y accesos principales.
-- **Sobre mí** — formación, tecnologías y objetivo profesional.
 - **Habilidades** — herramientas y lenguajes con los que trabajo.
 - **Proyectos** — selección de aplicaciones con demo y repositorio.
 - **Contacto** — formulario mediante Netlify Forms.
