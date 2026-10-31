@@ -32,3 +32,7 @@ WARP.md
 # local tooling state
 .atl/
 .playwright-mcp/
+
+# playwright
+playwright-report/
+test-results/
