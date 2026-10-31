@@ -118,6 +118,8 @@ body {
   --chatbox-host-surface-subtle: var(--surface-container-low);
   --chatbox-host-surface-raised: var(--surface-container-high);
   --chatbox-host-accent-container: var(--primary);
+  /* La tipografía no cambia con el tema: el widget la resuelve una sola vez. */
+  --chatbox-host-font: var(--font-display);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
