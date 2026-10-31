@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import foto from "../../assets/images/jorge-lizan.jpg";
+
+const stack = "PHP · JS · TS";
+---
+
+<figure class="hero-photo">
+  <div class="hero-photo-frame">
+    <Image
+      class="hero-photo-img"
+      src={foto}
+      alt="Jorge Lizán, desarrollador web full stack junior, con gafas y jersey azul en su escritorio"
+      widths={[400, 800]}
+      sizes="(min-width: 1024px) 25rem, min(25rem, 100vw)"
+      loading="eager"
+      decoding="async"
+    />
+    <span class="hero-photo-shade" aria-hidden="true"></span>
+    <figcaption class="hero-photo-caption">
+      <span class="hero-photo-who">
+        <span class="hero-photo-name">Jorge Lizán</span>
+        <span class="hero-photo-role">Desarrollador Full Stack Junior</span>
+      </span>
+      <span class="hero-photo-status">
+        <span class="hero-photo-dot" aria-hidden="true"></span>
+        <span>Activo</span>
+      </span>
+    </figcaption>
+  </div>
+
+  <span class="hero-photo-badge hero-photo-badge--open">
+    <span class="hero-photo-dot" aria-hidden="true"></span>
+    <span>Abierto a proyectos</span>
+  </span>
+
+  <span class="hero-photo-badge hero-photo-badge--stack">
+    <span class="hero-photo-stack-icon material-symbols-outlined" aria-hidden="true">terminal</span>
+    <span class="hero-photo-stack-text">
+      <span class="hero-photo-stack-label">Stack principal</span>
+      <span class="hero-photo-stack-value">{stack}</span>
+    </span>
+  </span>
+</figure>

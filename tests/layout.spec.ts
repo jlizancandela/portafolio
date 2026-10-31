@@ -65,3 +65,23 @@ test("las columnas no se salen de su grilla", async ({ page }) => {
 
   expect(leaks).toEqual([]);
 });
+
+test("la foto del hero reserva su espacio, es cuadrada y tiene texto alternativo", async ({ page }) => {
+  const img = page.locator(".hero-photo-img");
+  await expect(img).toHaveAttribute("alt", /Jorge Lizán/);
+
+  const attrs = await img.evaluate((el) => ({
+    width: Number(el.getAttribute("width")),
+    height: Number(el.getAttribute("height")),
+  }));
+  expect(attrs.width).toBeGreaterThan(0);
+  expect(attrs.height).toBeGreaterThan(0);
+
+  const frame = await page.locator(".hero-photo-frame").boundingBox();
+  expect(frame).not.toBeNull();
+  expect(Math.abs(frame!.width - frame!.height)).toBeLessThanOrEqual(1);
+
+  const photo = await img.boundingBox();
+  expect(photo!.width).toBeGreaterThan(0);
+  expect(photo!.height).toBeGreaterThan(0);
+});
