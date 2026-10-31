@@ -3,12 +3,30 @@
   const root = document.querySelector("[data-cursor]");
   const halo = document.querySelector("[data-cursor-halo]");
   const cross = document.querySelector("[data-cursor-cross]");
+
+  // Mismo criterio que el CSS: en pantallas táctiles el cursor propio no
+  // existe, así que tampoco tiene sentido escuchar movimientos de ratón.
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  const moveCursor = (event) => {
+    halo.style.left = `${event.clientX}px`;
+    halo.style.top = `${event.clientY}px`;
+    cross.style.left = `${event.clientX}px`;
+    cross.style.top = `${event.clientY}px`;
+  };
+
   if (root && halo && cross) {
-    window.addEventListener("mousemove", (event) => {
-      halo.style.left = `${event.clientX}px`;
-      halo.style.top = `${event.clientY}px`;
-      cross.style.left = `${event.clientX}px`;
-      cross.style.top = `${event.clientY}px`;
+    if (finePointer.matches) {
+      window.addEventListener("mousemove", moveCursor, { passive: true });
+    }
+
+    // Un dispositivo híbrido puede pasar de táctil a ratón sin recargar.
+    finePointer.addEventListener("change", (event) => {
+      if (event.matches) {
+        window.addEventListener("mousemove", moveCursor, { passive: true });
+        return;
+      }
+      window.removeEventListener("mousemove", moveCursor);
     });
   }
 </script>
