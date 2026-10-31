@@ -69,9 +69,32 @@ html[data-theme='dark'] {
   --shadow-hover: 0 0 20px -5px rgba(128, 131, 255, .25), 0 8px 16px -4px rgba(0, 0, 0, .5);
 }
 
+/* El tema del sistema repite los valores del oscuro explícito: son dos caminos al
+   mismo tema y `tests/theme-tokens.spec.ts` exige que declaren los mismos tokens. */
 @media (prefers-color-scheme: dark) {
   html[data-theme='system'] { color-scheme: dark; }
-  html[data-theme='system'] { --surface: #0f131c; --surface-container-lowest: #0a0e17; --surface-container-low: #181b25; --surface-container: #1c1f29; --surface-container-high: #262a34; --surface-container-highest: #31353f; --on-surface: #dfe2ef; --on-surface-variant: #c7c4d7; --outline: #908fa0; --primary: #c0c1ff; --secondary: #7bd0ff; --tertiary: #bdc2ff; --error: #ffb4ab; }
+  html[data-theme='system'] {
+    --surface: #0f131c;
+    --surface-dim: #0f131c;
+    --surface-bright: #353943;
+    --surface-container-lowest: #0a0e17;
+    --surface-container-low: #181b25;
+    --surface-container: #1c1f29;
+    --surface-container-high: #262a34;
+    --surface-container-highest: #31353f;
+    --on-surface: #dfe2ef;
+    --on-surface-variant: #c7c4d7;
+    --outline: #908fa0;
+    --outline-variant: #464554;
+    --primary: #c0c1ff;
+    --on-primary-container: #ffffff;
+    --secondary: #7bd0ff;
+    --tertiary: #bdc2ff;
+    --tertiary-container: #7c87f3;
+    --error: #ffb4ab;
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, .3);
+    --shadow-hover: 0 0 20px -5px rgba(128, 131, 255, .25), 0 8px 16px -4px rgba(0, 0, 0, .5);
+  }
 }
 
 /*
