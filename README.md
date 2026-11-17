@@ -35,9 +35,9 @@ Portfolio personal de **Jorge Lizán**, desarrollador web junior. Presenta una s
 | Proyecto | Descripción | Stack principal |
 |----------|-------------|-----------------|
 | [Reservas Peluquería](https://reservas.jorgelizancandela.com/) | Aplicación full stack para gestionar clientes, servicios y reservas. | PHP, Preact, MySQL, Docker |
-| [CountryQuiz](https://countryquiz.jorgelizancandela.com/) | Juego de preguntas sobre países con estado global y consumo de APIs. | React, TypeScript, Zustand, Vitest |
+| [Chatbox](https://github.com/jlizancandela/chatbox) | Asistente de chat con IA (RAG) que responde sobre un corpus documental en streaming SSE. Integrado en este portafolio. | TypeScript, Fastify, Preact, pgvector |
 | [Podólogos Pérez Guerrero](https://podologosperezguerrero.com/) | Sitio web profesional para una clínica de podología. | WordPress, PHP, JavaScript |
-| [4linea](https://4linea.jorgelizancandela.com/) | Juego de Conecta 4 con oponente controlado mediante inteligencia artificial. | React, JavaScript, HTML, CSS |
+| [CountryQuiz](https://countryquiz.jorgelizancandela.com/) | Juego de preguntas sobre países con estado global y consumo de APIs. | React, TypeScript, Zustand, Vitest |
 
 La documentación detallada, las instrucciones de instalación y las decisiones técnicas se mantienen en el README de cada repositorio.
 
