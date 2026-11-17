@@ -9,12 +9,11 @@
       "url": "https://reservas.jorgelizancandela.com/"
     },
     {
-      "nombre": "CountryQuiz",
-      "descripcion": "Juego de preguntas sobre países con estado global y consumo de APIs.",
-      "imagen": "https://ik.imagekit.io/jlc84/portfolio/countryQuiz.png",
-      "stack": "React, TypeScript, Zustand, Vitest",
-      "github": "https://github.com/jlizancandela/countryquiz",
-      "url": "https://countryquiz.jorgelizancandela.com/"
+      "nombre": "Chatbox",
+      "descripcion": "Asistente de chat con IA (RAG) que responde sobre un corpus documental en streaming SSE. Integrado en este portafolio.",
+      "imagen": "https://ik.imagekit.io/jlc84/portfolio/Chatbot.jpg?updatedAt=1794912677255",
+      "stack": "TypeScript, Fastify, Preact, pgvector",
+      "github": "https://github.com/jlizancandela/chatbox"
     },
     {
       "nombre": "Podólogos Pérez Guerrero",
@@ -24,20 +23,12 @@
       "url": "https://podologosperezguerrero.com/"
     },
     {
-      "nombre": "4linea",
-      "descripcion": "Juego de Conecta 4 con oponente controlado mediante inteligencia artificial.",
-      "imagen": "https://ik.imagekit.io/jlc84/portfolio/4Linea.png",
-      "stack": "React, JavaScript, HTML, CSS",
-      "github": "https://github.com/jlizancandela/4linea",
-      "url": "https://4linea.jorgelizancandela.com/"
-    },
-    {
-      "nombre": "Omdb",
-      "descripcion": "Aplicación para buscar películas y series usando la API de OMDB.",
-      "imagen": "https://ik.imagekit.io/jlc84/portfolio/omdb.png",
-      "stack": "React, TypeScript, HTML, CSS",
-      "github": "https://github.com/jlizancandela/omdb",
-      "url": "https://omdb.jorgelizancandela.com/"
+      "nombre": "CountryQuiz",
+      "descripcion": "Juego de preguntas sobre países con estado global y consumo de APIs.",
+      "imagen": "https://ik.imagekit.io/jlc84/portfolio/countryQuiz.png",
+      "stack": "React, TypeScript, Zustand, Vitest",
+      "github": "https://github.com/jlizancandela/countryquiz",
+      "url": "https://countryquiz.jorgelizancandela.com/"
     }
   ]
 }

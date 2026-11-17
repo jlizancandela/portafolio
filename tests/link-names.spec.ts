@@ -83,3 +83,44 @@ test("el texto para lectores de pantalla no ocupa espacio visible", async ({ pag
     expect(caja.alto).toBeLessThanOrEqual(2);
   }
 });
+
+/*
+ * El catálogo de proyectos está curado en cuatro tarjetas en orden de
+ * relevancia; Chatbox vive integrado en el propio portafolio, así que solo
+ * enlaza al repositorio y no muestra botón de demo externa.
+ */
+test("muestra los 4 proyectos destacados en orden y Chatbox enlaza solo al repositorio", async ({
+  page,
+}) => {
+  await page.goto("/");
+
+  const tarjetas = page.locator(".project-card");
+  await expect(tarjetas).toHaveCount(4);
+
+  const titulos = await tarjetas
+    .locator(".project-name")
+    .evaluateAll((els) => els.map((el) => el.textContent?.trim() ?? ""));
+
+  expect(titulos).toEqual([
+    "Reservas Peluquería",
+    "Chatbox",
+    "Podólogos Pérez Guerrero",
+    "CountryQuiz",
+  ]);
+
+  const chatbox = tarjetas.filter({
+    has: page.locator(".project-name", { hasText: /^\s*Chatbox\s*$/ }),
+  });
+  await expect(chatbox).toHaveCount(1);
+
+  await expect(
+    chatbox.locator(
+      'img[src="https://ik.imagekit.io/jlc84/portfolio/Chatbot.jpg?updatedAt=1794912677255"]'
+    )
+  ).toHaveCount(1);
+
+  const botones = chatbox.locator(".project-btn");
+  await expect(botones).toHaveCount(1);
+  await expect(botones).toHaveAttribute("href", "https://github.com/jlizancandela/chatbox");
+  await expect(chatbox.getByText("Ver Demo")).toHaveCount(0);
+});
