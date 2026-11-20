@@ -120,6 +120,7 @@ body {
   --chatbox-host-accent-container: var(--primary);
   /* La tipografía no cambia con el tema: el widget la resuelve una sola vez. */
   --chatbox-host-font: var(--font-display);
+  --chatbox-host-font-mono: var(--font-code);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
